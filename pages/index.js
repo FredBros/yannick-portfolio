@@ -8,13 +8,21 @@ export default function Home() {
         <title>Yannick Brossard</title>
         <meta
           name="description"
-          content="Yannick Brossard, Skipper professionnel"          
+          content="Yannick Brossard, Skipper professionnel"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans&display=swap" rel="stylesheet"/>
+        
       </Head>
-      <h1>Hello world</h1>      
+      <h1>Hello world</h1>
+
+      <style jsx>{`
+        h1 {
+          transform-origin: left;
+          transition : transform .3s;
+        }
+        h1:hover {
+          transform: scale(1.3, 1.1);          
+        }
+      `}</style>
     </>
   );
 }
