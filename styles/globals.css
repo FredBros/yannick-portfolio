@@ -1,9 +1,66 @@
+:root {
+
+  
+  
+  /* Your default theme */
+  
+  --background: #d1d8de;
+  --background2: #CFE3FF;
+  --foreground: #243347;
+  --font-color: #243347;
+  --main-bg-color: #f2ede4;
+  --font-color-dark: #f2ede4;
+  --main-bg-color-dark: #1a202c;
+  --color1: #b9b8b4;
+  --color2: #666971;
+  --color3: #9cb0cc;
+  --color4: #5779aa;
+  --color5: #CFE3FF;
+  --color6: #2B3C54;
+
+  /* font-size */
+
+  /* thx to https://www.fluid-type-scale.com/
+  Big up !! */
+
+  --font-size-sm: clamp(0.8rem, 0.26vw + 0.73rem, 0.89rem);
+  --font-size-base: clamp(1rem, 0.55vw + 0.86rem, 1.19rem);
+  --font-size-md: clamp(1.25rem, 0.97vw + 1.01rem, 1.58rem);
+  --font-size-lg: clamp(1.56rem, 1.59vw + 1.16rem, 2.11rem);
+  --font-size-xl: clamp(1.95rem, 2.5vw + 1.33rem, 2.81rem);
+  --font-size-xxl: clamp(2.44rem, 3.8vw + 1.49rem, 3.75rem);
+  --font-size-xxxl: clamp(3.05rem, 5.66vw + 1.64rem, 5rem);
+}
+
+[data-theme="dark"] {
+  --background: #243347;
+  --background2: #2B3C54;
+  --foreground: #d1d8de;
+}
+
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-size-base);
+  color : var(--foreground);
+  background: var(--background)
+}
+
+h1, h2{  
+font-family: 'Montserrat', sans-serif;
+font-weight : 700;
+}
+h1 {
+  font-size: var(--font-size-xxl);
+}
+h2 {
+  font-size: var(--font-size-lg);
+}
+h3 {
+  font-size: var(--font-size-md);
 }
 
 a {
@@ -11,11 +68,12 @@ a {
   text-decoration: none;
 }
 
-* {
+*, *:before,
+*:after{
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -23,4 +81,6 @@ a {
     color: white;
     background: black;
   }
-}
+} */
+
+
