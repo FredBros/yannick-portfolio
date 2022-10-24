@@ -28,7 +28,7 @@ const ThemeChanger = () => {
 
 
   return (
-    <div>    
+    <div className="theme-container">
       <input
         className="checkbox"
         type="checkbox"
@@ -45,13 +45,16 @@ const ThemeChanger = () => {
         )}
       </label>
       <style jsx>{`
+        .theme-container {
+          height: 32px;
+          cursor: pointer;
+        }
         .checkbox {
           appearance: none;
           margin: 0;
         }
-        svg{
-           width: 30px;
-           height : 30px; 
+        label {
+          cursor: pointer;
         }
       `}</style>
     </div>

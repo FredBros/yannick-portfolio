@@ -4,9 +4,11 @@ import { Header, Footer } from "..";
 function Layout({ children }) {
   return (
     <>
-      <Header />
-      {children}
-      <Footer />
+      <div className="layout">
+        <Header />
+        {children}
+        <Footer />
+      </div>
     </>
   );
 }
