@@ -88,10 +88,7 @@ if (!isLoaded) return null
           white-space: nowrap;
         }
 
-        .location {
-          grid-column: 7 / span 2;
-          position: relative;
-        }
+        
         .nav-sections {
           justify-self: end;
           grid-column: 10 / span 3;
@@ -128,6 +125,7 @@ if (!isLoaded) return null
           transform: scaleX(1);
           transform-origin: bottom left;
         }
+        
       `}</style>
     </>
   );
