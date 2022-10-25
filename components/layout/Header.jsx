@@ -1,42 +1,61 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
-import { Plus} from "../";
+import MediaQuery from "react-responsive";
 
 function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+useEffect(() => {
+  setIsLoaded(true)  
+}, [])
+
+if (!isLoaded) return null
+
+
   return (
     <>
       <header>
-        <nav>
+        <nav className="nav-header">
           <Link href="/">
-            <a className="name">Yannick Brossard</a>
+            <a className="name hover-underline-animation">Yannick Brossard</a>
           </Link>
 
           <div className="nav-sections">
-            <Link href="/about">
-              <a className="hover-underline-animation about">À propos,</a>
-            </Link>
-            {/* <Link href="/experience">
-            <a>Mon expérience</a>
-          </Link> */}
-            {/* <Link href="/convoyages">
-            <a>Mes convoyages</a>
-          </Link> */}
-            <Link href="/services">
-              <a className="hover-underline-animation services">services,</a>
-            </Link>
-            {/* <Link href="/certificate">
-            <a>Mes diplômes</a>
-          </Link> */}
-            <Link href="/contact">
-              <a className="hover-underline-animation contact">Contact</a>
-            </Link>
-            <Link href="/">
-              <a>
-                <div className="plus">
-                  <Plus color={"var(--background)"} />
-                </div>
+            <MediaQuery minWidth={992}>
+              {!isMenuOpen && (
+                <>
+                  <Link href="/about">
+                    <a className="hover-underline-animation about">À propos,</a>
+                  </Link>
+                  <Link href="/services">
+                    <a className="hover-underline-animation services">
+                      services,
+                    </a>
+                  </Link>
+                  <Link href="/contact">
+                    <a className="hover-underline-animation contact">
+                      Contact,
+                    </a>
+                  </Link>
+                </>
+              )}
+
+              <a
+                className="toggle-menu hover-underline-animation"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? "fermer" : "menu"}
               </a>
-            </Link>
+            </MediaQuery>
+            <MediaQuery maxWidth={992}>
+              <a
+                className="toggle-menu hover-underline-animation"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? "fermer" : "menu"}
+              </a>
+            </MediaQuery>
           </div>
         </nav>
       </header>
@@ -53,14 +72,17 @@ function Header() {
           top: 0;
           left: 0;
           mix-blend-mode: difference;
-          color: var(--background)
+          color: var(--background);
         }
-        nav {
+        .nav-header {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
           grid-column-gap: 25px;
           align-items: start;
           margin-right: 10px;
+        }
+        .toggle-menu {
+          cursor: pointer;
         }
         a {
           white-space: nowrap;
