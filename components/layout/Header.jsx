@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import MediaQuery from "react-responsive";
+import { ExpandedMenu, HeaderRoleLocation } from "../";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,6 +12,8 @@ useEffect(() => {
 }, [])
 
 if (!isLoaded) return null
+
+
 
 
   return (
@@ -59,6 +62,9 @@ if (!isLoaded) return null
           </div>
         </nav>
       </header>
+      <HeaderRoleLocation />
+      <ExpandedMenu toggle={isMenuOpen} />
+
       <style jsx>{`
         header {
           font-weight: 600;
@@ -88,7 +94,6 @@ if (!isLoaded) return null
           white-space: nowrap;
         }
 
-        
         .nav-sections {
           justify-self: end;
           grid-column: 10 / span 3;
@@ -125,7 +130,6 @@ if (!isLoaded) return null
           transform: scaleX(1);
           transform-origin: bottom left;
         }
-        
       `}</style>
     </>
   );

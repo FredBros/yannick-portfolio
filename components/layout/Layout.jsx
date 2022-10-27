@@ -6,7 +6,6 @@ function Layout({ children }) {
     <>
       <div className="layout">
         <Header />
-        <HeaderRoleLocation/>
         {children}
         <Footer />
       </div>

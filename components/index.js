@@ -3,6 +3,7 @@ export { default as Header } from "./layout/Header";
 export { default as Footer } from "./layout/Footer";
 export { default as ThemeChanger } from "./layout/ThemeChanger";
 export { default as HeaderRoleLocation } from "./layout/HeaderRoleLocation";
+export { default as ExpandedMenu } from "./layout/ExpandedMenu";
 export { default as Sun } from "./utils/Sun";
 export { default as Moon } from "./utils/Moon";
 export { default as Plus } from "./utils/Plus";
