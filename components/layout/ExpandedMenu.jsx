@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { gsap } from "gsap";
 import SplitType from "split-type";
 import useSplintedText from "../../hooks/useSplintedText"
+import Link from "next/link"
 
 
 
@@ -9,6 +10,8 @@ function ExpandedMenu({toggle}) {
 const menu=useRef()
 const tl = useRef();
 const ctx = useRef();
+
+const text0 = useRef()
 const text1 = useRef()
 const text2 = useRef()
 const text3 = useRef()
@@ -19,24 +22,25 @@ const text7 = useRef()
 const text8 = useRef()
 const text9 = useRef()
 const text10 = useRef()
-const texts = [
-  { text: "À propos", Size: "h1" },
-  { text: "Services", Size: "h1" },
-  { text: "Contact", Size: "h1" },
-  { text: "Expérience", Size: "h1" },
-  { text: "Mes convoyages", Size: "h1" },
-  { text: "Diplômes", Size: "h1" },
+// const texts = [
+//   { text: "À propos", Size: "h1" },
+//   { text: "Services", Size: "h1" },
+//   { text: "Contact", Size: "h1" },
+//   { text: "Expérience", Size: "h1" },
+//   { text: "Mes convoyages", Size: "h1" },
+//   { text: "Diplômes", Size: "h1" },
   // { text: "Skippeur", Size: "h4" },
   // { text: "professionnel", Size: "h4" },
   // { text: "Basé à Lorient,", Size: "h4" },
   // { text: "France", Size: "h4" },
-];
+// ];
 
-const { fullSplitedText, content } = useSplintedText(texts);
+// const { fullSplitedText, content } = useSplintedText(texts);
 
 
 useEffect(() => {
-  console.log(fullSplitedText, content);
+  // console.log(fullSplitedText, content);
+  const splitedText0 = SplitType.create(text0.current);
   const splitedText1 = SplitType.create(text1.current);
   const splitedText2 = SplitType.create(text2.current);
   const splitedText3 = SplitType.create(text3.current);
@@ -49,6 +53,7 @@ useEffect(() => {
   // const splitedText10 = SplitType.create(text10.current);
   // const fullTexts = [text1.current, text2.current];
   const fullSplitedTexts = [
+    splitedText0.chars,
     splitedText1.chars,
     splitedText2.chars,
     splitedText3.chars,
@@ -73,13 +78,13 @@ const fullSplitedTextsFlat = fullSplitedTexts.flat()
     });
     tl.current.to(menu.current, {
       y: "0",
-      duration: 0.3,
+      duration: 0.2,
     });
     tl.current.to(fullSplitedTexts, {
       // splitedText1.chars
       yPercent: -100,
-      duration: 0.2,
-      stagger: { amount: 1 },
+      duration: 0.15,
+      stagger: { amount: 0.7 },
     });
     return () => {
       ctx.revert();
@@ -93,27 +98,54 @@ useEffect(() => {
 toggle ? tl.current.play() : tl.current.reverse()
 },[toggle])
 
+
+
   return (
     <>
-      <div className="menu-container" ref={menu}>        
-        <ul>
+      <div className="menu-container" ref={menu}>
+        <ul className="nav-list">
           <li className="nav-item">
-            <h1 ref={text1}>À propos</h1>
+            <Link href="/">
+              <a>
+                <h1 ref={text0}>Accueil</h1>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <h1 ref={text2}>Services</h1>
+            <Link href="/about">
+              <a>
+                <h1 ref={text1}>À propos</h1>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <h1 ref={text3}>Contact</h1>
+            <Link href="/services">
+              <a>
+                <h1 ref={text2}>Services</h1>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <h1 ref={text4}>Expérience</h1>
+            <Link href="/contact">
+              <a>
+                <h1 ref={text3}>Contact</h1>
+              </a>
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link href="/delivery">
+              <a>
+                <h1 ref={text4}>Convoyages</h1>
+              </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <h1 ref={text5}>Mes convoyages</h1>
-          </li>
-          <li className="nav-item">
-            <h1 ref={text6}>Diplômes</h1>
+            <Link href="/diplome">
+              <a>
+                <h1 ref={text5}>Diplômes</h1>
+              </a>
+            </Link>
           </li>
         </ul>
         <ul>
@@ -141,14 +173,27 @@ toggle ? tl.current.play() : tl.current.reverse()
           height: 100vh;
           background-color: var(--color5);
           transform: translateY(100%);
+          display : flex;
+          flex-direction : column;
+          padding: 50px 20px;
+          justify-content: space-between;
+
         }
         ul {
           list-style: none;
+          padding: 0;
+        }
+        .nav-list{
+          text-align: center;
         }
         li {
           overflow: hidden;
         }
-        h1, h4 {
+        .nav-item{
+          margin-bottom: 20px;
+        }
+        h1,
+        h4 {
           margin: 0;
           transform: translateY(100%);
         }

@@ -2,10 +2,28 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import MediaQuery from "react-responsive";
 import { ExpandedMenu, HeaderRoleLocation } from "../";
+import { useRouter } from "next/router";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+
+
+   const { events } = useRouter();
+
+   const close = ()=> {
+     setIsMenuOpen(false)
+   }
+  
+
+  useEffect(() => {
+    // subscribe to next/router event
+    events.on("routeChangeStart", close);
+    return () => {
+      // unsubscribe to event on unmount to prevent memory leak
+      events.off("routeChangeStart", close);
+    };
+  }, [close, events]);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -80,7 +98,7 @@ function Header() {
         .nav-header {
           display: grid;
           grid-template-columns: repeat(6, 1fr);
-          
+
           align-items: start;
           margin-right: 10px;
         }
