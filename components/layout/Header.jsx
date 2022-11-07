@@ -1,20 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import MediaQuery from "react-responsive";
 import { ExpandedMenu, HeaderRoleLocation } from "../";
 
 function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-useEffect(() => {
-  setIsLoaded(true)  
-}, [])
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
-if (!isLoaded) return null
-
-
-
+  if (!isLoaded) return null;
 
   return (
     <>
@@ -82,8 +79,8 @@ if (!isLoaded) return null
         }
         .nav-header {
           display: grid;
-          grid-template-columns: repeat(12, 1fr);
-          grid-column-gap: 25px;
+          grid-template-columns: repeat(6, 1fr);
+          
           align-items: start;
           margin-right: 10px;
         }
@@ -129,6 +126,12 @@ if (!isLoaded) return null
         .hover-underline-animation:hover:after {
           transform: scaleX(1);
           transform-origin: bottom left;
+        }
+
+        @media screen and (min_width: 992px) {
+          .nav-header {
+            grid-template-columns: repeat(12, 1fr);
+          }
         }
       `}</style>
     </>
