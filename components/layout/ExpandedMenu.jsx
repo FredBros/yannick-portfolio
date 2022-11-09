@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { gsap } from "gsap";
 import SplitType from "split-type";
-import useSplintedText from "../../hooks/useSplintedText"
 import Link from "next/link"
 
 
@@ -22,24 +21,10 @@ const text7 = useRef()
 const text8 = useRef()
 const text9 = useRef()
 const text10 = useRef()
-// const texts = [
-//   { text: "À propos", Size: "h1" },
-//   { text: "Services", Size: "h1" },
-//   { text: "Contact", Size: "h1" },
-//   { text: "Expérience", Size: "h1" },
-//   { text: "Mes convoyages", Size: "h1" },
-//   { text: "Diplômes", Size: "h1" },
-  // { text: "Skippeur", Size: "h4" },
-  // { text: "professionnel", Size: "h4" },
-  // { text: "Basé à Lorient,", Size: "h4" },
-  // { text: "France", Size: "h4" },
-// ];
 
-// const { fullSplitedText, content } = useSplintedText(texts);
 
 
 useEffect(() => {
-  // console.log(fullSplitedText, content);
   const splitedText0 = SplitType.create(text0.current);
   const splitedText1 = SplitType.create(text1.current);
   const splitedText2 = SplitType.create(text2.current);
@@ -47,11 +32,7 @@ useEffect(() => {
   const splitedText4 = SplitType.create(text4.current);
   const splitedText5 = SplitType.create(text5.current);
   const splitedText6 = SplitType.create(text6.current);
-  // const splitedText7 = SplitType.create(text7.current);
-  // const splitedText8 = SplitType.create(text8.current);
-  // const splitedText9 = SplitType.create(text9.current);
-  // const splitedText10 = SplitType.create(text10.current);
-  // const fullTexts = [text1.current, text2.current];
+  
   const fullSplitedTexts = [
     splitedText0.chars,
     splitedText1.chars,
@@ -69,9 +50,7 @@ useEffect(() => {
     text9.current,
     text10.current,
   ];
-  // console.log("fullSplitedTexts", fullSplitedTexts);
 const fullSplitedTextsFlat = fullSplitedTexts.flat()
-  // console.log("fullSplitedTexts", fullSplitedTextsFlat);
   const ctx = gsap.context(() => {
     tl.current = gsap.timeline({
       paused: true,
@@ -81,7 +60,6 @@ const fullSplitedTextsFlat = fullSplitedTexts.flat()
       duration: 0.2,
     });
     tl.current.to(fullSplitedTexts, {
-      // splitedText1.chars
       yPercent: -100,
       duration: 0.15,
       stagger: { amount: 0.7 },
@@ -165,6 +143,7 @@ toggle ? tl.current.play() : tl.current.reverse()
       </div>
       <style jsx>{`
         .menu-container {
+          z-index: 50;
           opacity: 1;
           position: fixed;
           bottom: 0;
@@ -173,23 +152,22 @@ toggle ? tl.current.play() : tl.current.reverse()
           height: 100vh;
           background-color: var(--color5);
           transform: translateY(100%);
-          display : flex;
-          flex-direction : column;
+          display: flex;
+          flex-direction: column;
           padding: 50px 20px;
           justify-content: space-between;
-
         }
         ul {
           list-style: none;
           padding: 0;
         }
-        .nav-list{
+        .nav-list {
           text-align: center;
         }
         li {
           overflow: hidden;
         }
-        .nav-item{
+        .nav-item {
           margin-bottom: 20px;
         }
         h1,

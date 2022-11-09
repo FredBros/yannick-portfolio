@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import MediaQuery from "react-responsive";
-import { ExpandedMenu, HeaderRoleLocation } from "../";
+import { ExpandedMenu } from "../";
 import { useRouter } from "next/router";
 
 function Header() {
@@ -36,48 +35,57 @@ function Header() {
       <header>
         <nav className="nav-header">
           <Link href="/">
-            <a className="name hover-underline-animation">Yannick Brossard</a>
+            <a className="name">Yannick Brossard</a>
           </Link>
 
-          <div className="nav-sections">
-            <MediaQuery minWidth={992}>
-              {!isMenuOpen && (
-                <>
-                  <Link href="/about">
-                    <a className="hover-underline-animation about">À propos,</a>
-                  </Link>
-                  <Link href="/services">
-                    <a className="hover-underline-animation services">
-                      services,
-                    </a>
-                  </Link>
-                  <Link href="/contact">
-                    <a className="hover-underline-animation contact">
-                      Contact,
-                    </a>
-                  </Link>
-                </>
-              )}
-
+          {!isMenuOpen ? (
+            <>
+              <div className="role only-large-screen">
+                Skipper
+                <br />
+                professionnel
+              </div>
+              <div className="location only-large-screen">
+                basé à Lorient,
+                <br /> France
+              </div>
+              <div className="nav-sections">
+                <Link href="/about">
+                  <a className="hover-underline-animation about only-large-screen">
+                    À propos,
+                  </a>
+                </Link>
+                <Link href="/services">
+                  <a className="hover-underline-animation services only-large-screen">
+                    services,
+                  </a>
+                </Link>
+                <Link href="/contact">
+                  <a className="hover-underline-animation contact only-large-screen">
+                    Contact,
+                  </a>
+                </Link>
+                <a
+                  className="toggle-menu hover-underline-animation"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  menu
+                </a>
+              </div>
+            </>
+          ) : (
+            <div className="nav-sections">
               <a
                 className="toggle-menu hover-underline-animation"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                {isMenuOpen ? "fermer" : "menu"}
+                fermer
               </a>
-            </MediaQuery>
-            <MediaQuery maxWidth={992}>
-              <a
-                className="toggle-menu hover-underline-animation"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? "fermer" : "menu"}
-              </a>
-            </MediaQuery>
-          </div>
+            </div>
+          )}
         </nav>
       </header>
-      <HeaderRoleLocation />
+
       <ExpandedMenu toggle={isMenuOpen} />
 
       <style jsx>{`
@@ -97,10 +105,18 @@ function Header() {
         }
         .nav-header {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
-
+          grid-template-columns: repeat(12, 1fr);
           align-items: start;
           margin-right: 10px;
+        }
+        .name {
+          grid-column: 1 / span 3;
+        }
+        .role {
+          grid-column: 4 / span 2;
+        }
+        .location {
+          grid-column: 6 / span 3;
         }
         .toggle-menu {
           cursor: pointer;
@@ -111,44 +127,17 @@ function Header() {
 
         .nav-sections {
           justify-self: end;
-          grid-column: 10 / span 3;
+          grid-column: 12 / span 3;
           display: flex;
           gap: 10px;
         }
-        .plus {
-          height: 32px;
-          transition: transform 0.3s;
-          transform-origin: center;
-        }
-        .plus:hover {
-          transform: rotate(180deg);
-        }
-        .hover-underline-animation {
-          display: inline-block;
-          position: relative;
-          color: inherit;
-        }
-        .hover-underline-animation:after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--background);
-          transform-origin: bottom right;
-          transition: transform 0.25s ease-out;
-        }
+        
+        
+       
 
-        .hover-underline-animation:hover:after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-        }
-
-        @media screen and (min_width: 992px) {
-          .nav-header {
-            grid-template-columns: repeat(12, 1fr);
+        @media screen and (max-width: 992px) {
+          .only-large-screen {
+            display: none;
           }
         }
       `}</style>
