@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
+import {TextSplitTween} from "../"
 
 function SectionHomepage({ content, link }) {
-
+  console.log(content);
   return (
     <>
       <Link href={link || null}>
@@ -11,16 +12,22 @@ function SectionHomepage({ content, link }) {
           <div className="text">
             <div className="title">
               <a href="/">
-                  <h2 className="hover-underline-animation ">
+                <TextSplitTween>
+                  <h2
+                    className="hover-underline-animation"
+                    id={`title${content.id}`}
+                  >
                     {content.title}
                   </h2>
+                </TextSplitTween>
               </a>
             </div>
-</div>
-            
-              <h3 className="description ">{content.description}</h3>
-            
-          
+          </div>
+          <TextSplitTween>
+            <h3 className="description" id={`description${content.id}`}>
+              {content.description}
+            </h3>
+          </TextSplitTween>
 
           <div className="image-container">
             <div className="image">

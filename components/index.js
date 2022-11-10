@@ -12,6 +12,7 @@ export { default as Moon } from "./utils/Moon";
 export { default as Plus } from "./utils/Plus";
 
 export { default as Loader } from "./ui/Loader";
+export { default as TextSplitTween } from "./ui/TextSplitTween";
 
 //
 export { default as SectionHomepage } from "./modules/SectionHomepage";

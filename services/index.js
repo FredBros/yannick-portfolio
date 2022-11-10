@@ -23,6 +23,7 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
           delivery {
             title
@@ -32,6 +33,7 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
           diplomes {
             title
@@ -41,8 +43,8 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
-
           experience {
             title
             description
@@ -51,6 +53,7 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
           service {
             title
@@ -60,6 +63,7 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
           contact {
             title
@@ -69,7 +73,9 @@ export const getHomeData = async () =>{
               url
               width
             }
+            id
           }
+          id
         }
       }
     `;
