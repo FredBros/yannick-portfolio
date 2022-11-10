@@ -4,11 +4,9 @@ import { Hero, Loader, SectionHomepage } from "../components";
 import { getHomeData } from "../services";
 
 export default function Home({ data }) {
-  // console.log(data.homepages)
   const { headers, homepages } = data;
 
   const homepage = homepages[0];
-  console.log("homepage : ", homepage);
 
   const [isLoaded, setIsLoaded] = useState(false);
 

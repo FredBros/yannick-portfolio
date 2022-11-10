@@ -1,10 +1,9 @@
 import React from "react";
 import { Portrait, Name, Role } from "../";
-import MediaQuery from "react-responsive";
 
-// function Hero({ description, role, picture }) {
 function Hero({ content }) {
   const {picture, description} = content
+
   return (
     <section className="container-section-hero">
       <h3 className="description">{description}</h3>
@@ -13,10 +12,12 @@ function Hero({ content }) {
         professionnel
       </h1>
       <div className="portait">
-        <Portrait picture={picture} />
+        <Portrait picture={picture}/>
       </div>
       <h1 className="name">
-        Yannick<br/>Brossard
+        Yannick
+        <br />
+        Brossard
       </h1>
       {/* </MediaQuery> */}
 

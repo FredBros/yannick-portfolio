@@ -9,25 +9,29 @@ function SectionHomepage({ content, link }) {
       <Link href={link || null}>
         <section>
           <div className="text">
-          <h2 className="title">
-              <a href="" className="hover-underline-animation">
-                {content.title}
+            <div className="title">
+              <a href="/">
+                  <h2 className="hover-underline-animation ">
+                    {content.title}
+                  </h2>
               </a>
-            </h2>
-            <h3 className="description">{content.description}</h3>
-          </div>
-          
-            <div className="image-container">
-              <div className="image">
-                <Image
-                  src={content.image.url}
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
             </div>
+</div>
+            
+              <h3 className="description ">{content.description}</h3>
+            
           
+
+          <div className="image-container">
+            <div className="image">
+              <Image
+                src={content.image.url}
+                alt=""
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </div>
         </section>
       </Link>
       <style jsx>{`

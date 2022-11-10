@@ -3,7 +3,7 @@ import Parallax from "parallax-js";
 import Image from "next/image";
 
 
-function Portrait({picture}) {
+function Portrait({picture, ref}) {
   const parallaxEl = useRef();
 
   useEffect(() => {
@@ -17,7 +17,6 @@ function Portrait({picture}) {
     return () => parallaxInstance.disable();
   }, []);
 
-  // const parallaxInstance = new Parallax(containerPortrait.current);
   return (
     <>
       <div
