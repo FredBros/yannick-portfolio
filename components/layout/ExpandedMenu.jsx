@@ -41,16 +41,11 @@ useEffect(() => {
     splitedText4.chars,
     splitedText5.chars,
     splitedText6.chars,
-    // splitedText7.chars,
-    // splitedText8.chars,
-    // splitedText9.chars,
-    // splitedText10.chars,
     text7.current,
     text8.current,
     text9.current,
     text10.current,
   ];
-const fullSplitedTextsFlat = fullSplitedTexts.flat()
   const ctx = gsap.context(() => {
     tl.current = gsap.timeline({
       paused: true,

@@ -1,20 +1,108 @@
-import React from "react";
-import { Portrait, Name, Role } from "../";
+import React, { useEffect, useRef } from "react";
+import { Portrait } from "../";
+import SplitType from "split-type";
+import gsap from "gsap";
 
 function Hero({ content }) {
-  const {picture, description} = content
+  const { picture, description } = content;
+  const text0 = useRef();
+  const text1 = useRef();
+  const text2 = useRef();
+  const img = useRef();
+  const heroTl = useRef();
+  const ctx = useRef();
+  const hero = useRef();
 
+  useEffect(() => {
+    const splitedText0 = SplitType.create(text0.current, {
+      types: "words",
+    });
+    const splitedText1 = SplitType.create(text1.current, {
+      types: "words",
+    });
+    const splitedText2 = SplitType.create(text2.current, {
+      types: "words",
+    });
+    const ctx = gsap.context(() => {
+      heroTl.current = gsap.timeline({
+        paused: false,
+      });
+      heroTl.current.fromTo(
+        splitedText0.words,
+        {
+          y: "100%",
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.3,
+          ease: "easeInOut",
+          stagger: 0.05,
+          y: "0%",
+        }
+      );
+      heroTl.current.fromTo(
+        splitedText1.words,
+        {
+          y: "100%",
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "easeInOut",
+          stagger: 0.05,
+          y: "0%",
+        },
+        0.2
+      );
+      heroTl.current.fromTo(
+        img.current,
+        {
+          autoAlpha: 0,
+          scale: 0,
+        },
+        {
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: "back.inOut",
+        },
+        0.2
+      );
+      heroTl.current.fromTo(
+        splitedText2.words,
+        {
+          y: "100%",
+          autoAlpha: 0,
+        },
+        {
+          autoAlpha: 1,
+          duration: 0.5,
+          ease: "easeInOut",
+          stagger: 0.05,
+          y: "0%",
+        },0.5
+      );
+
+      return () => {
+        ctx.revert();
+      };
+    }, hero);
+  }, []);
   return (
-    <section className="container-section-hero">
-      <h3 className="description">{description}</h3>
-      <h1 className="role">
+    <section className="container-section-hero" ref={hero}>
+      <h3 className="description" ref={text0}>
+        {description}
+      </h3>
+      <h1 className="role" ref={text1}>
         Skipper <br />
         professionnel
       </h1>
-      <div className="portait">
-        <Portrait picture={picture}/>
+      <div className="portait" ref={img}>
+        <Portrait picture={picture} />
       </div>
-      <h1 className="name">
+      <h1 className="name" ref={text2}>
         Yannick
         <br />
         Brossard

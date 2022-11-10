@@ -10,8 +10,7 @@ export default function Home({ data }) {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  //test
-  const test = {};
+  
 
   useEffect(() => {
     setIsLoaded(true);
