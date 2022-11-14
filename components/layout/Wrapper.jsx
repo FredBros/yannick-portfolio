@@ -6,6 +6,7 @@ function Wrapper({ children }) {
       {children}
       <style jsx>{`
         .wrapper {
+          margin-top : 50px;
           padding: 5px 15px;
           flex: 1 0 auto;
         }

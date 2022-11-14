@@ -111,7 +111,8 @@ button:has(.hover-underline-animation):hover .hover-underline-animation:after, .
   transform-origin: bottom left;
 }
 
-.nav-header .hover-underline-animation:after {
+.header-upper .hover-underline-animation:after,
+ .header-lower .hover-underline-animation:after{
   background-color: var(--background);
   height: 2px;
 }

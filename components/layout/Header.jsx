@@ -7,13 +7,11 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const { events } = useRouter();
 
-   const { events } = useRouter();
-
-   const close = ()=> {
-     setIsMenuOpen(false)
-   }
-  
+  const close = () => {
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     // subscribe to next/router event
@@ -31,84 +29,96 @@ function Header() {
   if (!isLoaded) return null;
 
   return (
-    <>
-      <header>
-        <nav className="nav-header">
-          <Link href="/">
-            <a className="name">Yannick Brossard</a>
+    <div className="header-container">
+      <header className="header-upper">
+        <Link href="/">
+          <a className="name">Yannick Brossard</a>
+        </Link>
+        <nav className="nav-sections">
+          <a
+            className="toggle-menu hover-underline-animation"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? "fermer" : "menu"}
+          </a>
+        </nav>
+      </header>
+      <header className="header-lower">
+        <Link href="/">
+          <a style={{ color: "transparent" }} className="name">
+            Yannick Brossard
+          </a>
+        </Link>
+        <div className="role ">
+          Skipper
+          <br />
+          professionnel
+        </div>
+        <div className="location ">
+          basé à Lorient,
+          <br /> France
+        </div>
+        <nav className="nav-sections">
+          <Link href="/about">
+            <a className="hover-underline-animation about only-large-screen">
+              À propos,
+            </a>
           </Link>
-
-          {!isMenuOpen ? (
-            <>
-              <div className="role only-large-screen">
-                Skipper
-                <br />
-                professionnel
-              </div>
-              <div className="location only-large-screen">
-                basé à Lorient,
-                <br /> France
-              </div>
-              <div className="nav-sections">
-                <Link href="/about">
-                  <a className="hover-underline-animation about only-large-screen">
-                    À propos,
-                  </a>
-                </Link>
-                <Link href="/services">
-                  <a className="hover-underline-animation services only-large-screen">
-                    services,
-                  </a>
-                </Link>
-                <Link href="/contact">
-                  <a className="hover-underline-animation contact only-large-screen">
-                    Contact,
-                  </a>
-                </Link>
-                <a
-                  className="toggle-menu hover-underline-animation"
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >
-                  menu
-                </a>
-              </div>
-            </>
-          ) : (
-            <div className="nav-sections">
-              <a
-                className="toggle-menu hover-underline-animation"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                fermer
-              </a>
-            </div>
-          )}
+          <Link href="/services">
+            <a className="hover-underline-animation services only-large-screen">
+              services,
+            </a>
+          </Link>
+          <Link href="/contact">
+            <a className="hover-underline-animation contact only-large-screen">
+              Contact,
+            </a>
+          </Link>
+          <a
+            style={{ color: "transparent" }}
+            className="toggle-menu hover-underline-animation"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? "fermer" : "menu"}
+          </a>
         </nav>
       </header>
 
       <ExpandedMenu toggle={isMenuOpen} />
 
       <style jsx>{`
+        .header-container {
+        }
         header {
-          font-weight: 600;
+          position: fixed;
           z-index: 100;
+          font-weight: 600;
           width: 100%;
           text-transform: uppercase;
           font-size: 18px;
           padding: 3px 10px;
           background: transparent;
-          position: sticky;
           top: 0;
           left: 0;
           mix-blend-mode: difference;
           color: var(--background);
         }
-        .nav-header {
+
+        .header-upper,
+        .header-lower {
           display: grid;
           grid-template-columns: repeat(12, 1fr);
           align-items: start;
           margin-right: 10px;
         }
+        .header-upper {
+          z-index: 100;
+          pointer-events: ${isMenuOpen ? "auto" : "none"};
+        }
+        .header-lower {
+          z-index: 45;
+        }
+
         .name {
           grid-column: 1 / span 3;
         }
@@ -131,17 +141,17 @@ function Header() {
           display: flex;
           gap: 10px;
         }
-        
-        
-       
 
         @media screen and (max-width: 992px) {
-          .only-large-screen {
+          .header-lower {
             display: none;
+          }
+          .header-upper {
+            pointer-events: auto;
           }
         }
       `}</style>
-    </>
+    </div>
   );
 }
 

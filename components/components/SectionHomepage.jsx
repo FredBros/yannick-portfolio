@@ -182,7 +182,7 @@ function SectionHomepage({ content, link }) {
           cursor: pointer;
           position: sticky;
           margin-bottom: 50px;
-          top: 0;
+          top: 50px;
         }
         .title-container {
           text-align: center;

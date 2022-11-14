@@ -121,7 +121,7 @@ toggle ? tl.current.play() : tl.current.reverse()
             </Link>
           </li>
         </ul>
-        <ul>
+        <ul className="role-location">
           <li>
             <h4 ref={text7}>Skippeur</h4>
           </li>
@@ -145,6 +145,7 @@ toggle ? tl.current.play() : tl.current.reverse()
           left: 0;
           width: 100%;
           height: 100vh;
+          max-height: 100vh;
           background-color: var(--color5);
           transform: translateY(100%);
           display: flex;
@@ -170,6 +171,11 @@ toggle ? tl.current.play() : tl.current.reverse()
         h4 {
           margin: 0;
           transform: translateY(100%);
+        }
+        .role-location{
+          position: absolute;
+          bottom: 0;
+          left: 0;
         }
       `}</style>
     </>
