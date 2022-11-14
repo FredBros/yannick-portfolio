@@ -151,6 +151,7 @@ toggle ? tl.current.play() : tl.current.reverse()
           flex-direction: column;
           padding: 50px 20px;
           justify-content: space-between;
+          border-top: solid var(--foreground) 2px;
         }
         ul {
           list-style: none;

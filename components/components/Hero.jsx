@@ -15,7 +15,7 @@ function Hero({ content }) {
 
   useEffect(() => {
     const splitedText0 = SplitType.create(text0.current, {
-      types: "words",
+      types: "lines",
     });
     const splitedText1 = SplitType.create(text1.current, {
       types: "words",
@@ -28,7 +28,7 @@ function Hero({ content }) {
         paused: false,
       });
       heroTl.current.fromTo(
-        splitedText0.words,
+        splitedText0.lines,
         {
           y: "100%",
           autoAlpha: 0,
@@ -119,12 +119,7 @@ function Hero({ content }) {
           align-items: center;
           align-content: start;
           height: calc(100vh - 24px);
-          padding-bottom: 20px 0 40px;
-        }
-        @mediaquery screen & (min-width : 992) {
-          .container-section-hero {
-            height: calc(100vh - 48px);
-          }
+          padding: 20px 0 40px;
         }
 
         .description {
@@ -143,6 +138,38 @@ function Hero({ content }) {
         .name {
           grid-column: 1 / 7;
           grid-row: 4;
+        }
+
+        @media screen and (min-width: 992px) {
+          .container-section-hero {
+            height: calc(100vh - 48px);
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 25% 1fr 25%;
+            row-gap: 30px;
+          }
+          .role {
+            grid-column: 1 / 7;
+            grid-row: 1;
+          }
+          .name {
+            grid-column-start: 13;
+            grid-row: 3;
+            justify-self: end;
+            text-align: end;
+          }
+          .description {
+            grid-column: 2 / 7;
+            grid-row: 3;
+          }
+          .portait {
+            grid-column: 1 / 9;
+            grid-row: 2;
+          }
+        }
+        @media screen and (min-width: 1200px) {
+          .description {
+            grid-column: 3 / 7;
+        }
         }
       `}</style>
     </section>

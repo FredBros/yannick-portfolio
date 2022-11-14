@@ -12,9 +12,11 @@ export { default as Moon } from "./utils/Moon";
 export { default as Plus } from "./utils/Plus";
 
 export { default as Loader } from "./ui/Loader";
+export { default as BtnCTA } from "./ui/BtnCTA";
 // export { default as TextSplitTween } from "./ui/TextSplitTween";
 
 //
-export { default as SectionHomepage } from "./modules/SectionHomepage";
-export { default as Hero } from "./modules/Hero";
-export { default as Portrait } from "./modules/Portrait";
+export { default as SectionHomepage } from "./components/SectionHomepage";
+export { default as SectionContact } from "./components/SectionContact";
+export { default as Hero } from "./components/Hero";
+export { default as Portrait } from "./components/Portrait";

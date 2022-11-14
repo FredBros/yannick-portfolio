@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { Hero, Loader, SectionHomepage } from "../components";
+import { Hero, Loader, SectionHomepage, SectionContact } from "../components";
 import { getHomeData } from "../services";
 
 export default function Home({ data }) {
@@ -58,6 +58,15 @@ export default function Home({ data }) {
           link="/services"
         />
       ) : null}
+      {homepage.diplomes ? (
+        <SectionHomepage
+          key={homepage.diplomes.title}
+          content={homepage.diplomes}
+          link="/services"
+        />
+      ) : null}
+      <SectionContact content={homepage.contact} link="/contact" />
+
       <style jsx>{`
         h1 {
           transform-origin: left;

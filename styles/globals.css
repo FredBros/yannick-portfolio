@@ -1,11 +1,8 @@
 :root {
-
-  
-  
   /* Your default theme */
-  
+
   --background: #d1d8de;
-  --background2: #CFE3FF;
+  --background2: #cfe3ff;
   --foreground: #243347;
   --font-color: #243347;
   --main-bg-color: #f2ede4;
@@ -15,8 +12,8 @@
   --color2: #666971;
   --color3: #9cb0cc;
   --color4: #5779aa;
-  --color5: #CFE3FF;
-  --color6: #2B3C54;
+  --color5: #cfe3ff;
+  --color6: #2b3c54;
 
   /* font-size */
 
@@ -34,42 +31,47 @@
 
 [data-theme="dark"] {
   --background: #243347;
-  --background2: #2B3C54;
+  --background2: #2b3c54;
   --foreground: #d1d8de;
 }
-
-
-
 
 html,
 body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: var(--font-size-base);
-  color : var(--foreground);
+  color: var(--foreground);
   background: var(--background);
 }
 
-
-h1, h2, h3{  
-font-family: 'Montserrat', sans-serif;
-font-weight : 400;
-letter-spacing: -2.5px;
-text-transform: uppercase;
-white-space: pre-wrap;
+h1,
+h2,
+h3 {
+  font-family: "Montserrat", sans-serif;  font-weight: 400;
+  letter-spacing: -2.5px;
+  text-transform: uppercase;
+  white-space: pre-wrap;
 }
 h1 {
-  font-size: var(--font-size-xxl);
-  
+  font-size: var(--font-size-xxxl);
+  font-weight: 500;
+}
+@media screen and (max-width: 560px) {
+  h1{
+    font-size: var(--font-size-xxl);
+  }
 }
 h2 {
   font-size: var(--font-size-lg);
+    font-weight: 400;
+
 }
 h3 {
   font-size: var(--font-size-md);
-  letter-spacing: -1.5px;  
+    font-weight: 400;
+  letter-spacing: -1.5px;
 }
 
 a {
@@ -77,39 +79,42 @@ a {
   text-decoration: none;
 }
 
-*, *:before,
-*:after{
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }
 
 .hover-underline-animation {
-          display: inline-block;
-          position: relative;
-          color: inherit;
-        }
-        .hover-underline-animation:after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 3px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--foreground);
-          transform-origin: bottom right;
-          transition: transform 0.25s ease-out;
-        }
+  display: inline-block;
+  position: relative;
+  color: inherit;
+}
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--foreground);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
 
-        .hover-underline-animation:hover:after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-        }
 
-        .nav-header .hover-underline-animation:after{
-          background-color:var(--background);
-          height: 2px;
-        }
+
+button:has(.hover-underline-animation):hover .hover-underline-animation:after, .hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-header .hover-underline-animation:after {
+  background-color: var(--background);
+  height: 2px;
+}
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -119,5 +124,3 @@ a {
     background: black;
   }
 } */
-
-
