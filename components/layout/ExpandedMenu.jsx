@@ -1,77 +1,69 @@
-import React, { useEffect, useRef, useState, useLayoutEffect } from 'react'
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
-import Link from "next/link"
+import Link from "next/link";
 
+function ExpandedMenu({ toggle }) {
+  const menu = useRef();
+  const tl = useRef();
+  const ctx = useRef();
 
+  const text0 = useRef();
+  const text1 = useRef();
+  const text2 = useRef();
+  const text3 = useRef();
+  const text4 = useRef();
+  const text5 = useRef();
+  const text6 = useRef();
+  const text7 = useRef();
+  const text8 = useRef();
+  const text9 = useRef();
+  const text10 = useRef();
 
-function ExpandedMenu({toggle}) {
-const menu=useRef()
-const tl = useRef();
-const ctx = useRef();
+  useEffect(() => {
+    const splitedText0 = SplitType.create(text0.current, { types: "chars" });
+    const splitedText1 = SplitType.create(text1.current, { types: "chars" });
+    const splitedText2 = SplitType.create(text2.current, { types: "chars" });
+    const splitedText3 = SplitType.create(text3.current, { types: "chars" });
+    const splitedText4 = SplitType.create(text4.current, { types: "chars" });
+    const splitedText5 = SplitType.create(text5.current, { types: "chars" });
+    const splitedText6 = SplitType.create(text6.current, { types: "chars" });
 
-const text0 = useRef()
-const text1 = useRef()
-const text2 = useRef()
-const text3 = useRef()
-const text4 = useRef()
-const text5 = useRef()
-const text6 = useRef()
-const text7 = useRef()
-const text8 = useRef()
-const text9 = useRef()
-const text10 = useRef()
+    const fullSplitedTexts = [
+      splitedText0.chars,
+      splitedText1.chars,
+      splitedText2.chars,
+      splitedText3.chars,
+      splitedText4.chars,
+      splitedText5.chars,
+      splitedText6.chars,
+      text7.current,
+      text8.current,
+      text9.current,
+      text10.current,
+    ];
+    const ctx = gsap.context(() => {
+      tl.current = gsap.timeline({
+        paused: true,
+      });
+      tl.current.to(menu.current, {
+        y: "0",
+        duration: 0.2,
+      });
+      tl.current.to(fullSplitedTexts, {
+        yPercent: -100,
+        duration: 0.15,
+        stagger: { amount: 0.7 },
+      });
+      return () => {
+        ctx.revert();
+      };
+    }, menu);
+  }, []);
 
-
-
-useEffect(() => {
-  const splitedText0 = SplitType.create(text0.current);
-  const splitedText1 = SplitType.create(text1.current);
-  const splitedText2 = SplitType.create(text2.current);
-  const splitedText3 = SplitType.create(text3.current);
-  const splitedText4 = SplitType.create(text4.current);
-  const splitedText5 = SplitType.create(text5.current);
-  const splitedText6 = SplitType.create(text6.current);
-  
-  const fullSplitedTexts = [
-    splitedText0.chars,
-    splitedText1.chars,
-    splitedText2.chars,
-    splitedText3.chars,
-    splitedText4.chars,
-    splitedText5.chars,
-    splitedText6.chars,
-    text7.current,
-    text8.current,
-    text9.current,
-    text10.current,
-  ];
-  const ctx = gsap.context(() => {
-    tl.current = gsap.timeline({
-      paused: true,
-    });
-    tl.current.to(menu.current, {
-      y: "0",
-      duration: 0.2,
-    });
-    tl.current.to(fullSplitedTexts, {
-      yPercent: -100,
-      duration: 0.15,
-      stagger: { amount: 0.7 },
-    });
-    return () => {
-      ctx.revert();
-    };
-  }, menu);
-}, []);
-
-
-
-useEffect(() => {
-toggle ? tl.current.play() : tl.current.reverse()
-},[toggle])
-
-
+  useEffect(() => {
+    toggle ? tl.current.play() : tl.current.reverse();
+  }, [toggle]);
 
   return (
     <>
@@ -169,13 +161,14 @@ toggle ? tl.current.play() : tl.current.reverse()
         }
         h1,
         h4 {
+          display: inline-block;
           margin: 0;
           transform: translateY(100%);
         }
-        .role-location{
+        .role-location {
           position: absolute;
-          bottom: 0;
-          left: 0;
+          bottom: 10px;
+          left: 10px;
         }
       `}</style>
     </>

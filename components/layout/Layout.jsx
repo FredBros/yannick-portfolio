@@ -1,12 +1,21 @@
 import React from "react";
-import { Header, Footer, Wrapper} from "..";
+import { Header, Footer,  } from "..";
+
+
 
 function Layout({ children }) {
+
+
+
+  
+
   return (
     <>
       <div className="layout">
         <Header />
-        <Wrapper>{children}</Wrapper>
+        
+            <main>{children}</main>
+         
         <Footer />
       </div>
       <style jsx>{`
@@ -14,6 +23,12 @@ function Layout({ children }) {
           min-height: 100vh;
           display: flex;
           flex-direction: column;
+          cursor: none;
+        }
+        main {
+          margin-top: 50px;
+          padding: 5px 15px;
+          flex: 1 0 auto;
         }
       `}</style>
     </>

@@ -129,7 +129,6 @@ function Header() {
           grid-column: 6 / span 3;
         }
         .toggle-menu {
-          cursor: pointer;
         }
         a {
           white-space: nowrap;

@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import { StrictMode } from "react";
-import { Layout } from "../components";
+import { Layout, } from "../components";
 import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }) {
@@ -8,6 +8,7 @@ function MyApp({ Component, pageProps }) {
     <StrictMode>
       <ThemeProvider>
         <Layout>
+          
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>

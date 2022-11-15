@@ -104,8 +104,8 @@ function SectionHomepage({ content, link }) {
     ctx.add(() => {
       hoverTween.current = gsap.to(imgRef.current, {
         scale: 1.1,
-        duration: 0.1,
-        ease: "power1.out",
+        duration: 0.5,
+        ease: "power4.inOut",
         paused: true,
       });
     }, sectionRef.current);
@@ -137,9 +137,9 @@ function SectionHomepage({ content, link }) {
     <>
       <section ref={sectionRef}>
         <Link href={link || null}>
-          <div className="text">
+          <div className="text know-more">
             <div className="title-container">
-              <a href="/">
+              <a href="/" className="know-more-link">
                 <h2 className="title" id={`title${content.id}`} ref={titleRef}>
                   {content.title}
                 </h2>
@@ -179,7 +179,6 @@ function SectionHomepage({ content, link }) {
           border-bottom: solid var(--foreground) 2px;
         }
         .text {
-          cursor: pointer;
           position: sticky;
           margin-bottom: 50px;
           top: 50px;

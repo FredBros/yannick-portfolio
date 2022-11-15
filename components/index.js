@@ -4,7 +4,7 @@ export { default as Footer } from "./layout/Footer";
 export { default as ThemeChanger } from "./layout/ThemeChanger";
 export { default as HeaderRoleLocation } from "./layout/HeaderRoleLocation";
 export { default as ExpandedMenu } from "./layout/ExpandedMenu";
-export { default as Wrapper } from "./layout/Wrapper";
+export { default as Cursor } from "./layout/Cursor";
 
 //
 export { default as Sun } from "./utils/Sun";

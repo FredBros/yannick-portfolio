@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { Hero, Loader, SectionHomepage, SectionContact } from "../components";
+import { Hero, Loader, SectionHomepage, SectionContact, Cursor } from "../components";
 import { getHomeData } from "../services";
 
 export default function Home({ data }) {
@@ -29,6 +29,8 @@ export default function Home({ data }) {
           content="Yannick Brossard, Skipper professionnel"
         />
       </Head>
+      <Cursor />
+
       <Hero content={headers[0]} />
       {homepage.service ? (
         <SectionHomepage

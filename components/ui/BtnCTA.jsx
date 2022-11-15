@@ -8,20 +8,20 @@ const BtnCTA = forwardRef(function BtnCTA({ children, href }, ref) {
   return (
     <>
       <Link href={href} passHref>
-        <button>
-          <a className="btn hover-underline-animation hover-underline-animation-btn">
-            {children}
-          </a>
-        </button>
+        <a>
+          <button className="btn">
+            <span>
+              {children}
+            </span>
+          </button>
+        </a>
       </Link>
       <style jsx>{`
-        
         button {
           background-color: var(--background);
           color: var(--foreground);
-          cursor: pointer;
           border: solid 4px var(--foreground);
-         
+          padding: 20px;
         }
         a {
           margin: 30px;
