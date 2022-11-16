@@ -6,7 +6,7 @@ import {
   SectionHomepage,
   SectionContact,
   Cursor,
-  FadeInOut,
+  
 } from "../components";
 import { getHomeData } from "../services";
 
@@ -35,7 +35,7 @@ export default function Home({ data }) {
         />
       </Head>
       <Cursor />
-      <FadeInOut>
+      
         <Hero content={headers[0]} />
         <main>
           {homepage.service ? (
@@ -75,7 +75,7 @@ export default function Home({ data }) {
           ) : null}
           <SectionContact content={homepage.contact} link="/contact" />
         </main>
-      </FadeInOut>
+     
 
       <style jsx>{`
         h1 {

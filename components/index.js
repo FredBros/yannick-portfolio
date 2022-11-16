@@ -23,4 +23,3 @@ export { default as Portrait } from "./components/Portrait";
 
 
 
-export { default as FadeInOut } from "../animations/FadeInOut";
