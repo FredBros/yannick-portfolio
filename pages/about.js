@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {Cursor} from "../components"
+import {Cursor, FadeInOut} from "../components"
 import SplitType from "split-type";
 
 
@@ -11,7 +11,11 @@ const text = SplitType.create(".to-split", { types: "chars" });
   return (
     <>
       <Cursor />
-      <h1 className="to-split">about</h1>
+      <FadeInOut>
+        <main>
+          <h1 className="to-split">about</h1>
+        </main>
+      </FadeInOut>
       <style jsx>{`
         .to-split {
           display: inline;

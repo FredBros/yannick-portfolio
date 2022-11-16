@@ -20,3 +20,7 @@ export { default as SectionHomepage } from "./components/SectionHomepage";
 export { default as SectionContact } from "./components/SectionContact";
 export { default as Hero } from "./components/Hero";
 export { default as Portrait } from "./components/Portrait";
+
+
+
+export { default as FadeInOut } from "../animations/FadeInOut";
