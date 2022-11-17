@@ -44,13 +44,15 @@ function AccordionItem({ title, content }) {
   return (
     <div className="accordion-item" ref={itemRef}>
       <div className="accordion-title" onClick={() => setIsActive(!isActive)}>
+          <a>
         <button>
-          <p>{title}</p>
-          <div className="plus">
-            <span className="span1"></span>
-            <span className="span2" ref={spanRef}></span>
-          </div>
+            <p>{title}</p>
+            <div className="plus">
+              <span className="span1"></span>
+              <span className="span2" ref={spanRef}></span>
+            </div>
         </button>
+          </a>
       </div>
       <div className="accordion-content-container" ref={contentRef}>
         <div className="accordion-content">
