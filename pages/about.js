@@ -1,29 +1,32 @@
 import React, {useEffect} from 'react'
-import {Cursor} from "../components"
-import SplitType from "split-type";
+import { getPresentation } from "../services";
+import {About,SectionContact,Cursor} from "../components"
 
 
-function about() {
-
-  useEffect(() => {
-const text = SplitType.create(".to-split", { types: "chars" });
-  },[])
+function about({data}) {
+  const {about, portrait} = data
+  
+  // console.log(about)
+  
   return (
     <>
       <Cursor />
-      
-        <main>
-          <h1 className="to-split">about</h1>
-        </main>
-      
-      <style jsx>{`
-        .to-split {
-          display: inline;
-          font-kerning: none;
-        }
-      `}</style>
+      <main>
+        <About data={data} />
+      </main>
+      <SectionContact />
     </>
   );
 }
 
+
+
+
 export default about
+
+export async function getStaticProps() {
+  const data = await getPresentation();
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
+}

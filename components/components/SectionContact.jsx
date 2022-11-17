@@ -1,18 +1,21 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {BtnCTA} from "../"
 import Link from "next/link"
+import { MyContext } from "../../utils/context/MyContext";
 
 
 
-function SectionContact({ content }) {
 
-console.log(content);
+function SectionContact() {
 
+// console.log(content);
+const {contact} = useContext(MyContext)
+console.log(contact);
 
   return (
     <>
       <section className="contact-container">
-        <p>{content.description}</p>
+        <p>{contact.description}</p>
         <div className="button-container">
           <Link href="/contact" passHref>
             <BtnCTA href="/contact">

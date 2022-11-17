@@ -27,7 +27,7 @@ function Layout({ children }) {
         }
         main {
           margin-top: 50px;
-          padding: 5px 15px;
+          padding: 5px 20px;
           flex: 1 0 auto;
         }
       `}</style>

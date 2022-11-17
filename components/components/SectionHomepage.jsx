@@ -46,23 +46,7 @@ function SectionHomepage({ content, link }) {
     
 
     const ctx = gsap.context(() => {
-      //   imgTl.current = gsap.timeline({
-      //     defaults: { ease: "none" },
-      //     paused: false,
-      //     scrollTrigger: {
-      //       trigger: imgRef.current,
-      //       start: "center center",
-      //       end: "bottom top",
-      //       scrub: 1,
-      //     },
-      //   });
-      //   imgTl.current.to(imgRef.current, {
-      //     autoAlpha: 0,
-      //     scale: 0.2,
-      //   });
-      // }, sectionRef);
-      // ctx.add(() => {
-
+      
       textTl.current = gsap.timeline({
         defaults: { ease: "easeInOut" },
         paused: false,
@@ -133,6 +117,8 @@ function SectionHomepage({ content, link }) {
     };
   }, []); //fin de useEffect
 
+console.log(content.description);
+
   return (
     <>
       <section ref={sectionRef}>
@@ -195,14 +181,16 @@ function SectionHomepage({ content, link }) {
         .image-container {
           position: relative;
           overflow: hidden;
+          margin: 0 auto;
           height: 40vh;
+          max-width: 500px;
         }
         .image {
           overflow: hidden;
-
+width: 100%;
           height: 130%;
-          max-width: 500px;
-          margin: 0 auto;
+          
+          
           transform: translateY(-30%);
         }
 
@@ -221,10 +209,11 @@ function SectionHomepage({ content, link }) {
           .image-container {
             grid-column: 8 / 13;
             height: 100%;
+            width : 100%;
           }
           .image {
             width: 100%;
-            max-width: 100%;
+            
           }
           .text {
             grid-column: 1 / 7;

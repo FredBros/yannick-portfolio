@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { MyContext } from "../utils/context/MyContext";
 import Head from "next/head";
 import {
   Hero,
@@ -6,20 +7,20 @@ import {
   SectionHomepage,
   SectionContact,
   Cursor,
-  
 } from "../components";
 import { getHomeData } from "../services";
 
 export default function Home({ data }) {
+
+const {changeContact, contact} = useContext(MyContext)
   const { headers, homepages } = data;
-
   const homepage = homepages[0];
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
+    changeContact(homepage.contact);    
     setIsLoaded(true);
-  });
+  },[]);
 
   if (!isLoaded) {
     return <Loader />;
@@ -73,7 +74,7 @@ export default function Home({ data }) {
               link="/services"
             />
           ) : null}
-          <SectionContact content={homepage.contact} link="/contact" />
+          <SectionContact/>
         </main>
      
 
