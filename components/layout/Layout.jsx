@@ -30,6 +30,11 @@ function Layout({ children }) {
           padding: 5px 20px;
           flex: 1 0 auto;
         }
+        @media screen and (min-width:992px){
+          main{
+            padding: 5px 70px;
+          }
+        }
       `}</style>
     </>
   );

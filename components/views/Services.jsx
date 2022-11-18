@@ -12,17 +12,19 @@ import { RichText } from "@graphcms/rich-text-react-renderer";
 function Services({ data }) {
   const { servicesCard } = data;
 
-//   console.log("data --> ", data);
-//   console.log("card --> ", servicesCard);
+  //   console.log("data --> ", data);
+  //   console.log("card --> ", servicesCard);
 
   return (
     <>
       <SectionContainer>
-        <div className="title">
-          <TitleIn delay={0}>
-            <h1>{data.title}</h1>
-          </TitleIn>
-          <div className="image-wrapper img1">
+        <div className="services-container">
+          <div className="title">
+            <TitleIn delay={0}>
+              <h1>{data.title}</h1>
+            </TitleIn>
+          </div>
+          <div className="image-wrapper">
             <ImageTween data={data.photo[0]} delay={0.5} />
           </div>
           <div className="content">
@@ -34,7 +36,8 @@ function Services({ data }) {
                 }}
               />
             </ContentIn>
-
+          </div>
+          <div className="accordion-container">
             <Accordion data={servicesCard} />
           </div>
         </div>
@@ -54,8 +57,29 @@ function Services({ data }) {
           height: 30vh;
           margin: 30px auto;
         }
-        .content{
-            margin: 100px 0;
+        .content {
+          margin: 100px 0;
+        }
+        @media screen and (min-width: 992px) {
+          .services-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-column-gap: 25px;
+            justify-items: start;
+          }
+          .title {
+            grid-column: 3 / 13;
+          }
+          .image-wrapper {
+            grid-column: 3 / 10;
+            margin: 30px 0;
+          }
+          .content {
+            grid-column: 3 / 12;
+          }
+          .accordion-container {
+            grid-column: 3 / 13;
+          }
         }
       `}</style>
     </>

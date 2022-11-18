@@ -27,7 +27,7 @@
   --font-size-xl: clamp(1.95rem, 2.5vw + 1.33rem, 2.81rem);
   --font-size-xxl: clamp(2.35rem, 3.8vw + 1.49rem, 3.75rem);
   --font-size-xxxl: clamp(3.05rem, 5.66vw + 1.64rem, 5rem);
-  --font-size-xxxxl: clamp(2.5rem, 0.4167rem + 9.5238vw, 8.75rem);
+  --font-size-xxxxl: clamp(2.5rem, 0.8333rem + 7.619vw, 7.5rem);
 }
 
 [data-theme="dark"] {
