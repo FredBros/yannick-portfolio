@@ -41,6 +41,13 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+}
+html{
+    font-size: 100%;
+
+}
+
+body {
   font-family: "Open Sans", sans-serif;
   font-size: var(--font-size-base);
   color: var(--foreground);
@@ -76,14 +83,16 @@ h3 {
   letter-spacing: -1.5px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a, button, label{
   cursor: none;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 button {
-  cursor: none;
   font-size: 100%;
   font-family: inherit;
   color: inherit;

@@ -14,6 +14,7 @@ export { default as Plus } from "./utils/Plus";
 
 export { default as Loader } from "./ui/Loader";
 export { default as BtnCTA } from "./ui/BtnCTA";
+export { default as Submit } from "./ui/Submit";
 
 //
 export { default as SectionHomepage } from "./components/SectionHomepage";
@@ -33,6 +34,10 @@ export { default as ImageTween } from "../animations/ImageTween";
 
 export { default as About } from "./views/About";
 export { default as Services } from "./views/Services";
+export { default as Contact } from "./views/Contact";
+
+
+export { default as ContactForm } from "./form/ContactForm";
 
 
 

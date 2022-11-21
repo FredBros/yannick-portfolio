@@ -74,7 +74,11 @@ function Cursor() {
   const handleLinkHoverEvents = () => {
     document.querySelectorAll("a:not(.know-more-link) ").forEach((el) => {
       el.addEventListener("mouseover", () => setLinkHovered(true));
-      
+      el.addEventListener("mouseout", () => setLinkHovered(false));
+    });
+  
+    document.querySelectorAll(".to-click").forEach((el) => {
+      el.addEventListener("mouseover", () => setLinkHovered(true));
       el.addEventListener("mouseout", () => setLinkHovered(false));
     });
   };

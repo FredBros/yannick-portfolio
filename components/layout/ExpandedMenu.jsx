@@ -55,10 +55,10 @@ function ExpandedMenu({ toggle }) {
         duration: 0.15,
         stagger: { amount: 0.7 },
       });
-      return () => {
-        ctx.revert();
-      };
-    }, menu);
+    }, menu.current);
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   useEffect(() => {

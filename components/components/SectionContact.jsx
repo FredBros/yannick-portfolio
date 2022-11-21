@@ -10,7 +10,6 @@ function SectionContact() {
 
 // console.log(content);
 const {contact} = useContext(MyContext)
-console.log(contact);
 
   return (
     <>

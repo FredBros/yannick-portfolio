@@ -147,3 +147,30 @@ query GetServices {
   const result = await request(graphqlAPI, query);
   return result.services[0];
 };
+
+
+
+export const getContact = async () => {
+  const query = gql`
+query GetContact {
+  contacts(orderBy: publishedAt_ASC, first: 1) {
+    id
+    contact {
+      content {
+        raw
+      }
+      slug
+      picture {
+        height
+        url
+        width
+      }
+      subtitle
+      title
+    }
+  }
+}
+   `;
+  const result = await request(graphqlAPI, query);
+  return result.contacts[0];
+}
