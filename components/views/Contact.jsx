@@ -13,33 +13,29 @@ function Contact({data}) {
 
   return (
     <>
-      
+      <SectionContainer>
         <div className="contact-container">
           <div className="title">
             <TitleIn delay={0}>
               <h1>{data.title}</h1>
             </TitleIn>
-            <div className="subtitle">
-              <SubtitleIn delay={0.3}>
-                {" "}
-                <h2>{data.subtitle}</h2>
-              </SubtitleIn>
-            </div>
           </div>
           <div className="image-wrapper">
-            <ImageTween data={data.picture[0]} delay={0.8} />
+            <ImageTween data={data.picture[0]} delay={0.3} />
+          </div>
+          <div className="subtitle">
+            <h2>
+              <SubtitleIn delay={0.8}>{data.subtitle}</SubtitleIn>
+            </h2>
           </div>
           <div className="content">
-            <ContentIn delay={1}>
-              <RichText
-                content={data.content.raw.children}            
-              />
+            <ContentIn delay={1.5}>
+              <RichText content={data.content.raw.children} />
             </ContentIn>
           </div>
         </div>
-
-      <ContactForm/>
-
+      </SectionContainer>
+      <ContactForm />
       <style jsx>{`
         h1,
         h2,
@@ -47,7 +43,7 @@ function Contact({data}) {
           overflow: hidden;
         }
         h1 {
-          font-size: var(--font-size-xxxxl);
+          font-size: var(--font-size-xxxl);
         }
         .image-wrapper {
           width: 100%;
@@ -68,15 +64,16 @@ function Contact({data}) {
           .title {
             grid-column: 3 / 13;
           }
-          subtitle {
+          .subtitle {
             grid-column: 3 / 13;
           }
           .image-wrapper {
-            grid-column: 3 / 10;
+            max-width: none;
+            grid-column: 3 / 9;
             margin: 30px 0;
           }
           .content {
-            grid-column: 3 / 12;
+            grid-column: 3 / 10;
           }
         }
       `}</style>

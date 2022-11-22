@@ -8,6 +8,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 
 function ImageTween({ data, delay }) {
+  if (!data) {
+    return null;
+  }
   const imgRef = useRef();
   const imgContainerRef = useRef();
   const ctx = useRef();

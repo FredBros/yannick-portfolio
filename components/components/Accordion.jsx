@@ -7,7 +7,6 @@ function Accordion({data}) {
 
     const [isActive, setIsActive] = useState(false);
 
-console.log("data --> ", data);
   return (
     <>
       <div className="accordion">

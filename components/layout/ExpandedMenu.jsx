@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
 import Link from "next/link";
+import {TitleIn, SubtitleIn} from "../"
 
 function ExpandedMenu({ toggle }) {
   const menu = useRef();
@@ -91,9 +92,9 @@ function ExpandedMenu({ toggle }) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/contact">
+            <Link href="/experience">
               <a>
-                <h1 ref={text3}>Contact</h1>
+                <h1 ref={text3}>Expérience</h1>
               </a>
             </Link>
           </li>
@@ -109,6 +110,13 @@ function ExpandedMenu({ toggle }) {
             <Link href="/diplome">
               <a>
                 <h1 ref={text5}>Diplômes</h1>
+              </a>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link href="/contact">
+              <a>
+                <h1 ref={text6}>Contact</h1>
               </a>
             </Link>
           </li>

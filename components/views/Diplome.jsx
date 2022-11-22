@@ -5,15 +5,14 @@ import {
   ContentIn,
   ImageTween,
   SectionContainer,
-  Accordion,
-  Grid,
-  
+  ContactForm,
+  SectionContact,
+  Grid
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
-function Services({ data }) {
-  const { servicesCard, services } = data;
-
+function Diplome({ data }) {
+  console.log(data);
 
   return (
     <>
@@ -21,31 +20,25 @@ function Services({ data }) {
         <Grid>
           <div className="title">
             <TitleIn delay={0}>
-              <h1>{services.title}</h1>
+              <h1>{data.title}</h1>
             </TitleIn>
           </div>
           <div className="image-wrapper">
-            <ImageTween data={services.picture} delay={0.3} />
+            <ImageTween data={data.picture[0]} delay={0.3} />
           </div>
           <div className="subtitle">
             <h2>
-              <SubtitleIn delay={0.8}>{services.subtitle}</SubtitleIn>
+              <SubtitleIn delay={0.8}>{data.subtitle}</SubtitleIn>
             </h2>
           </div>
           <div className="content">
-            
             <ContentIn delay={1.5}>
-              <RichText
-                content={services.content.raw.children}               
-              />
+              <RichText content={data.content.raw.children} />
             </ContentIn>
-            
-          </div>
-          <div className="accordion-container">
-            <Accordion data={servicesCard} />
           </div>
         </Grid>
       </SectionContainer>
+      <SectionContact />
       <style jsx>{`
         h1,
         h2,
@@ -53,7 +46,7 @@ function Services({ data }) {
           overflow: hidden;
         }
         h1 {
-          font-size: var(--font-size-xxxl);
+          font-size: var(--font-size-xxl);
         }
         .image-wrapper {
           width: 100%;
@@ -64,9 +57,11 @@ function Services({ data }) {
         .content {
           margin: 100px 0;
         }
-
         @media screen and (min-width: 992px) {
           .title {
+            grid-column: 3 / 13;
+          }
+          .subtitle {
             grid-column: 3 / 13;
           }
           .image-wrapper {
@@ -74,14 +69,8 @@ function Services({ data }) {
             grid-column: 3 / 9;
             margin: 30px 0;
           }
-          .subtitle {
-            grid-column: 3 / 10;
-          }
           .content {
             grid-column: 3 / 10;
-          }
-          .accordion-container {
-            grid-column: 3 / 12;
           }
         }
       `}</style>
@@ -89,4 +78,4 @@ function Services({ data }) {
   );
 }
 
-export default Services;
+export default Diplome;

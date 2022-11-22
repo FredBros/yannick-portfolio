@@ -71,7 +71,7 @@ const {changeContact, contact} = useContext(MyContext)
             <SectionHomepage
               key={homepage.diplomes.title}
               content={homepage.diplomes}
-              link="/services"
+              link="/diplome"
             />
           ) : null}
           <SectionContact/>

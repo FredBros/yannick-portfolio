@@ -115,34 +115,37 @@ export const getPresentation = async () => {
 
 export const getServices = async () => {
   const query = gql`
-query GetServices {
-  services(orderBy: publishedAt_ASC, first: 1) {
-    title
-    photo {
-      height
-      url
-      width
-    }
-    id
-    presentation {
-      raw
-    }
-    servicesCard {
-      picture {
-        height
-        url
-        width
+    query GetServices {
+      services(first: 1, orderBy: publishedAt_ASC) {
+        id
+        services {
+          picture {
+            url
+            width
+            height
+          }
+          slug
+          subtitle
+          title
+          content {
+            raw
+          }
+        }
+        servicesCard {
+          content {
+            raw
+          }
+          slug
+          subtitle
+          title
+          picture {
+            height
+            url
+            width
+          }
+        }
       }
-      slug
-      subtitle
-      title
-      content {
-        raw
-      }
     }
-    slug
-  }
-}
   `;
   const result = await request(graphqlAPI, query);
   return result.services[0];
@@ -173,4 +176,55 @@ query GetContact {
    `;
   const result = await request(graphqlAPI, query);
   return result.contacts[0];
+}
+
+
+export const getExperience = async () => {
+  const query = gql`
+    query GetExperience {
+      experiences(first: 1, orderBy: publishedAt_ASC) {
+        experience {
+          content {
+            raw
+          }
+          picture {
+            height
+            url
+            width
+          }
+          slug
+          id
+          subtitle
+          title
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.experiences[0];
+}
+
+export const getDiplome = async () => {
+  const query = gql`
+    query GetDiplome {
+      diplomes(first: 1, orderBy: publishedAt_ASC) {
+        diplomes {
+          content {
+            raw
+          }
+          id
+          slug
+          subtitle
+          title
+          picture {
+            height
+            url
+            width
+          }
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.diplomes[0];
 }

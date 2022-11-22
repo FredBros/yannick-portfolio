@@ -5,6 +5,7 @@ import {
   ContentIn,
   ImageTween,
   SectionContainer,
+  Grid
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
@@ -16,7 +17,7 @@ function About({ data }) {
   return (
     <>
       <SectionContainer>
-        <div className="grid-container">
+        <Grid>
           <div className="title">
             <TitleIn delay={0}>
               {title.map((word, index) => (
@@ -25,36 +26,31 @@ function About({ data }) {
             </TitleIn>
           </div>
           <div className="image-wrapper img1">
-            <ImageTween data={portrait} delay={1} />
+            <ImageTween data={portrait} delay={0.3} />
           </div>
           <div className="subtitle">
-            <SubtitleIn delay={1} className="subtitle">
-              <h2>{about.subtitle}</h2>
-            </SubtitleIn>
+            <h2>
+              <SubtitleIn delay={0.8}>{about.subtitle}</SubtitleIn>
+            </h2>
           </div>
           <div className="content">
-            <ContentIn delay={2}>
+            {/* <ContentIn delay={1.5}> */}
               <RichText content={about.content.raw.children} />
-            </ContentIn>
+            {/* </ContentIn> */}
           </div>
           <div className="image-wrapper img2">
-            <ImageTween data={about.picture[0]} delay={1} />
+            <ImageTween data={about.picture} delay={1} />
           </div>
-        </div>
+        </Grid>
       </SectionContainer>
 
       <style jsx>{`
-        .grid-container {
-          display: block;
-          height: 100%;
-          width: 100%;
-        }
         h1,
         h2 {
           overflow: hidden;
         }
         h1 {
-          font-size: var(--font-size-xxxxl);
+          font-size: var(--font-size-xxxl);
         }
         .title {
           margin: 50px 0;
@@ -77,12 +73,6 @@ function About({ data }) {
         }
 
         @media screen and (min-width: 992px) {
-          .grid-container {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-column-gap: 25px;
-          }
-
           .title {
             grid-column: 3 / 13;
             margin: 20px 0 20px;

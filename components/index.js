@@ -6,6 +6,7 @@ export { default as HeaderRoleLocation } from "./layout/HeaderRoleLocation";
 export { default as ExpandedMenu } from "./layout/ExpandedMenu";
 export { default as Cursor } from "./layout/Cursor";
 export { default as SectionContainer } from "./layout/SectionContainer";
+export { default as Grid } from "./layout/Grid";
 
 //
 export { default as Sun } from "./utils/Sun";
@@ -35,6 +36,8 @@ export { default as ImageTween } from "../animations/ImageTween";
 export { default as About } from "./views/About";
 export { default as Services } from "./views/Services";
 export { default as Contact } from "./views/Contact";
+export { default as Experience } from "./views/Experience";
+export { default as Diplome } from "./views/Diplome";
 
 
 export { default as ContactForm } from "./form/ContactForm";
