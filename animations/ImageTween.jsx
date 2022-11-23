@@ -1,11 +1,9 @@
-import React,{useRef, useEffect} from 'react'
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 function ImageTween({ data, delay }) {
   if (!data) {
@@ -16,6 +14,7 @@ function ImageTween({ data, delay }) {
   const ctx = useRef();
   const hoverTween = useRef();
   const imgTween = useRef();
+  const imgAppearanceTl = useRef();
 
   const onMouseEnterHandler = () => {
     hoverTween.current.play();
@@ -26,8 +25,16 @@ function ImageTween({ data, delay }) {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        imgRef.current,
+      // appearance
+      imgAppearanceTl.current = gsap.timeline({
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: "center bottom",
+          end: "bottom center",
+          markers: false,
+        }})
+        .fromTo(
+        imgRef.current,        
         {
           autoAlpha: 0,
           scale: 0,
@@ -37,8 +44,9 @@ function ImageTween({ data, delay }) {
           scale: 1,
           duration: 0.5,
           ease: "back.inOut",
-          delay: delay || 0
+          delay: delay || 0,
         }
+        
       );
     });
 
@@ -64,8 +72,6 @@ function ImageTween({ data, delay }) {
         },
       });
     });
-    // appearance
-    ctx.add(() => {});
     return () => {
       ctx.revert();
     };
@@ -91,6 +97,7 @@ function ImageTween({ data, delay }) {
           width: 100%;
         }
         .image {
+          position: relative;
           overflow: hidden;
           height: 130%;
           width: 100%;

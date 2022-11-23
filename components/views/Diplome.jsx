@@ -1,13 +1,11 @@
 import React from "react";
 import {
-  TitleIn,
   SubtitleIn,
-  ContentIn,
+  Content,
   ImageTween,
   SectionContainer,
-  ContactForm,
   SectionContact,
-  Grid
+  Grid, Title
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
@@ -19,12 +17,10 @@ function Diplome({ data }) {
       <SectionContainer>
         <Grid>
           <div className="title">
-            <TitleIn delay={0}>
-              <h1>{data.title}</h1>
-            </TitleIn>
+            <Title delay={0.3} text={data.title} />
           </div>
           <div className="image-wrapper">
-            <ImageTween data={data.picture[0]} delay={0.3} />
+            <ImageTween data={data.picture} delay={0.3} />
           </div>
           <div className="subtitle">
             <h2>
@@ -32,22 +28,18 @@ function Diplome({ data }) {
             </h2>
           </div>
           <div className="content">
-            <ContentIn delay={1.5}>
-              <RichText content={data.content.raw.children} />
-            </ContentIn>
+            <Content delay={1.5} data={data.content.raw.children}/>
+              
           </div>
         </Grid>
       </SectionContainer>
       <SectionContact />
       <style jsx>{`
-        h1,
         h2,
         h3 {
           overflow: hidden;
         }
-        h1 {
-          font-size: var(--font-size-xxl);
-        }
+
         .image-wrapper {
           width: 100%;
           max-width: 500px;
@@ -55,7 +47,7 @@ function Diplome({ data }) {
           margin: 30px auto;
         }
         .content {
-          margin: 100px 0;
+          margin: 100px 0 0;
         }
         @media screen and (min-width: 992px) {
           .title {

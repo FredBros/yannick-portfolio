@@ -9,10 +9,9 @@ function useArrayRef() {
   return [refs, (ref) => ref && refs.current.push(ref)];
 }
 
-const TestSubtitle = ({ children, delay }) => {
-
+const SubtitleIn = ({ children, delay }) => {
   if (!children) {
-    return null
+    return null;
   }
   const [refs, setRefs] = useArrayRef();
 
@@ -48,47 +47,20 @@ const TestSubtitle = ({ children, delay }) => {
         style={{ display: "inline-block", overflow: "hidden" }}
       >
         <span
+          className="words"
           ref={setRefs}
           style={{ display: "inline-block", willChange: "transform" }}
         >
           {word + (i !== word.length - 1 ? "\u00A0" : "")}
         </span>
+        <style jsx>{`
+          .words {
+            opacity: 0;
+          }
+        `}</style>
       </span>
     );
   });
 };
 
-export default TestSubtitle;
-
-// import React, { useRef, useEffect } from "react";
-// import { gsap } from "gsap";
-// import SplitType from "split-type";
-
-// function SubtitleIn({children, delay}) {
-
-// const el = useRef();
-
-// useEffect(() => {
-//   el.current.style.fontKerning = "none";
-//   const splitedText = SplitType.create(el.current, {
-//     types: "words"
-//   });
-//   console.log(splitedText.words);
-//   const ctx = gsap.context(() => {
-//     gsap.from(splitedText.words, {
-//       // autoAlpha: 0,
-//       y: "100%",
-//       stagger: 0.1,
-//       duration: 0.3,
-//       delay: delay || 0,
-//     });
-//   });
-//   return () => {
-//     ctx.revert()
-//     SplitType.revert(el.current)};
-// }, []);
-
-//   return <div ref={el}>{children}</div>;
-// }
-
-// export default SubtitleIn
+export default SubtitleIn;

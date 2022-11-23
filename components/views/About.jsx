@@ -5,28 +5,30 @@ import {
   ContentIn,
   ImageTween,
   SectionContainer,
-  Grid
+  Grid,
+  Title,
+  Content,
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 function About({ data }) {
   const { about, portrait } = data;
 
-  const title = about.title.split(" ");
+ 
+
+  useEffect(() => {
+
+  })
 
   return (
     <>
       <SectionContainer>
         <Grid>
           <div className="title">
-            <TitleIn delay={0}>
-              {title.map((word, index) => (
-                <h1 key={index}>{word}</h1>
-              ))}
-            </TitleIn>
+            <Title text={about.title} delay={0.3}></Title>
           </div>
           <div className="image-wrapper img1">
-            <ImageTween data={portrait} delay={0.3} />
+            <ImageTween data={portrait} delay={0.5} />
           </div>
           <div className="subtitle">
             <h2>
@@ -34,9 +36,8 @@ function About({ data }) {
             </h2>
           </div>
           <div className="content">
-            {/* <ContentIn delay={1.5}> */}
-              <RichText content={about.content.raw.children} />
-            {/* </ContentIn> */}
+            <Content delay={1.5} data={about.content.raw.children}/>
+              
           </div>
           <div className="image-wrapper img2">
             <ImageTween data={about.picture} delay={1} />
@@ -45,13 +46,11 @@ function About({ data }) {
       </SectionContainer>
 
       <style jsx>{`
-        h1,
-        h2 {
+        h2,
+        h3 {
           overflow: hidden;
         }
-        h1 {
-          font-size: var(--font-size-xxxl);
-        }
+
         .title {
           margin: 50px 0;
         }

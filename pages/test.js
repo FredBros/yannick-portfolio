@@ -1,24 +1,26 @@
-import React ,{useRef, useEffect, useState} from 'react'
-import TestSubtitle from "../animations/TestSubtitle"
-import {Cursor} from "../components"
+import React from 'react'
+import { getTest } from "../services/";
+import { Cursor } from "../components";
 
-function test() {
 
-    
+
+const test = ({data}) => {
+    console.log(data)
   return (
-
     <>
       <Cursor />
-
-       
-        <h2>
-      <TestSubtitle>
-          I'm baby kinfolk taiyaki kitsch, pour-over lyft glossier gluten-free.
-          Cronut marfa tacos chia.
-      </TestSubtitle>
-        </h2>
+      <main>
+        {data.content}
+      </main>
     </>
   );
 }
 
 export default test
+
+export async function getStaticProps() {
+  const data = await getTest();
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
+}

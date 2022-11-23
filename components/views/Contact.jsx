@@ -1,11 +1,11 @@
 import React from 'react'
 import {
-  TitleIn,
   SubtitleIn,
-  ContentIn,
+  Content,
   ImageTween,
   SectionContainer,
   ContactForm,
+  Title
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
@@ -16,12 +16,10 @@ function Contact({data}) {
       <SectionContainer>
         <div className="contact-container">
           <div className="title">
-            <TitleIn delay={0}>
-              <h1>{data.title}</h1>
-            </TitleIn>
+            <Title text={data.title} delay={0.3} />
           </div>
           <div className="image-wrapper">
-            <ImageTween data={data.picture[0]} delay={0.3} />
+            <ImageTween data={data.picture} delay={0.5} />
           </div>
           <div className="subtitle">
             <h2>
@@ -29,9 +27,7 @@ function Contact({data}) {
             </h2>
           </div>
           <div className="content">
-            <ContentIn delay={1.5}>
-              <RichText content={data.content.raw.children} />
-            </ContentIn>
+            <Content delay={1.5} data={data.content.raw.children}/>
           </div>
         </div>
       </SectionContainer>
@@ -52,7 +48,7 @@ function Contact({data}) {
           margin: 30px auto;
         }
         .content {
-          margin: 100px 0;
+          margin: 100px 0 0;
         }
         @media screen and (min-width: 992px) {
           .contact-container {

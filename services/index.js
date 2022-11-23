@@ -228,3 +228,56 @@ export const getDiplome = async () => {
   const result = await request(graphqlAPI, query);
   return result.diplomes[0];
 }
+
+export const getTest = async () => {
+  const query = gql`
+    query GetTest {
+      tests {
+        content
+      }
+    }
+  `;
+const result = await request(graphqlAPI, query);
+  return result.tests[0];
+  }
+
+
+export const getDelivery = async () => {
+  const query = gql`
+    query GetDelivery {
+      deliveries(first: 1, orderBy: publishedAt_ASC) {
+        id
+        deliveries {
+          id
+          title
+          subtitle
+          picture {
+            height
+            url
+            width
+          }
+          content {
+            raw
+          }
+        }
+        deliveryCard {
+          content {
+            raw
+          }
+          title
+          gpsCoord {
+            latitude
+            longitude
+          }
+          picture {
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+  `;
+  const result = await request(graphqlAPI, query);
+  return result.deliveries[0];
+};

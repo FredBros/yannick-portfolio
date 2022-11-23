@@ -1,42 +1,30 @@
-import React from "react";
+import React from 'react'
 import {
   SubtitleIn,
   Content,
   ImageTween,
   SectionContainer,
-  Accordion,
+  SectionContact,
   Grid,
   Title
-  
 } from "../";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
-function Services({ data }) {
-  const { servicesCard, services } = data;
+
+const Delivery = ({data}) => {
+    const {deliveries, deliveryCard} = data
+    console.log(deliveries, deliveryCard);
 
   return (
     <>
       <SectionContainer>
         <Grid>
           <div className="title">
-            <Title text={services.title} delay={0.3} />
-          </div>
-          <div className="image-wrapper">
-            <ImageTween data={services.picture} delay={0.3} />
-          </div>
-          <div className="subtitle">
-            <h2>
-              <SubtitleIn delay={0.8}>{services.subtitle}</SubtitleIn>
-            </h2>
-          </div>
-          <div className="content">
-            <Content delay={1.5} data={services.content.raw.children}/>
-          </div>
-          <div className="accordion-container">
-            <Accordion data={servicesCard} />
+            <Title text={deliveries.title} delay={0.3} />
           </div>
         </Grid>
       </SectionContainer>
+      <SectionContact />
       <style jsx>{`
         h2,
         h3 {
@@ -50,7 +38,7 @@ function Services({ data }) {
           margin: 30px auto;
         }
         .content {
-          margin: 100px 0;
+          margin: 100px 0 0;
         }
 
         @media screen and (min-width: 992px) {
@@ -77,4 +65,5 @@ function Services({ data }) {
   );
 }
 
-export default Services;
+export default Delivery
+
