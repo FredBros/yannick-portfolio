@@ -6,14 +6,13 @@ import {
   SectionContainer,
   SectionContact,
   Grid,
-  Title
+  Title,
+  DeliveryCardSection,
 } from "../";
-import { RichText } from "@graphcms/rich-text-react-renderer";
 
 
 const Delivery = ({data}) => {
     const {deliveries, deliveryCard} = data
-    console.log(deliveries, deliveryCard);
 
   return (
     <>
@@ -22,6 +21,20 @@ const Delivery = ({data}) => {
           <div className="title">
             <Title text={deliveries.title} delay={0.3} />
           </div>
+          <div className="image-wrapper">
+            <ImageTween data={deliveries.picture} delay={0.3} />
+          </div>
+          <div className="subtitle">
+            <h2>
+              <SubtitleIn delay={0.8}>{deliveries.subtitle}</SubtitleIn>
+            </h2>
+          </div>
+          <div className="content">
+            <Content delay={1.5} data={deliveries.content.raw.children} />
+          </div>
+          <section className="delivery-card-section">
+            <DeliveryCardSection data={deliveryCard} />
+          </section>
         </Grid>
       </SectionContainer>
       <SectionContact />
@@ -40,6 +53,9 @@ const Delivery = ({data}) => {
         .content {
           margin: 100px 0 0;
         }
+        .delivery-card-section {
+          margin: 10vw 0;
+        }
 
         @media screen and (min-width: 992px) {
           .title {
@@ -56,8 +72,9 @@ const Delivery = ({data}) => {
           .content {
             grid-column: 3 / 10;
           }
-          .accordion-container {
-            grid-column: 3 / 12;
+          .delivery-card-section {
+            grid-column: 3 / 10;
+            margin: 5vh 0;
           }
         }
       `}</style>

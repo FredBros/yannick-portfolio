@@ -5,13 +5,12 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function ImageTween({ data, delay }) {
+function ImageTween({ data, delay, noZoomIn}) {
   if (!data) {
     return null;
   }
   const imgRef = useRef();
   const imgContainerRef = useRef();
-  const ctx = useRef();
   const hoverTween = useRef();
   const imgTween = useRef();
   const imgAppearanceTl = useRef();
@@ -24,7 +23,10 @@ function ImageTween({ data, delay }) {
   };
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {})
+
+    if(!noZoomIn){
+      ctx.add(()=>{
       // appearance
       imgAppearanceTl.current = gsap.timeline({
         scrollTrigger: {
@@ -48,7 +50,7 @@ function ImageTween({ data, delay }) {
         }
         
       );
-    });
+    })}
 
     ctx.add(() => {
       // hover image useEffect

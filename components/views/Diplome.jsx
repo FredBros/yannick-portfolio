@@ -10,7 +10,7 @@ import {
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 function Diplome({ data }) {
-  console.log(data);
+ 
 
   return (
     <>
@@ -29,8 +29,7 @@ function Diplome({ data }) {
           </div>
           <div className="content">
             <Content delay={1.5} data={data.content.raw.children}/>
-              
-          </div>
+.          </div>
         </Grid>
       </SectionContainer>
       <SectionContact />

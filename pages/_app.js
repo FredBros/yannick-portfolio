@@ -7,7 +7,7 @@ import { MyContextProvider } from "../utils/context/MyContext"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <StrictMode>
+    // <StrictMode>
       <ThemeProvider>
         <MyContextProvider>
           <Layout>
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         </MyContextProvider>
       </ThemeProvider>
-    </StrictMode>
+    // </StrictMode>
   );
 }
 

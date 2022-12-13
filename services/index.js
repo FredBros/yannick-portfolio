@@ -266,8 +266,8 @@ export const getDelivery = async () => {
           }
           title
           gpsCoord {
-            latitude
-            longitude
+            lat : latitude
+            lng: longitude
           }
           picture {
             url
