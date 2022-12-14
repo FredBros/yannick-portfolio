@@ -11,16 +11,16 @@ import {
 import { getHomeData } from "../services";
 
 export default function Home({ data }) {
-
-const {changeContact, contact} = useContext(MyContext)
+  const {changeContact} = useContext(MyContext)
   const { headers, homepages } = data;
   const homepage = homepages[0];
   const [isLoaded, setIsLoaded] = useState(false);
-
+  
   useEffect(() => {
-    changeContact(homepage.contact);    
+
+    changeContact(homepage.contact);
     setIsLoaded(true);
-  },[]);
+  }, [changeContact, homepage.contact]);
 
   if (!isLoaded) {
     return <Loader />;

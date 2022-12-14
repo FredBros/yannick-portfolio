@@ -11,17 +11,6 @@ const containerStyle = {
   height: "100%",
 };
 const center = centerGPSPoint(path);
-// const averageLng = path.reduce((acc, gps) => Number(gps.lng) + acc, 0) / path.length
-// // const averageLat = (path.reduce((acc, gps) => Number(gps.lat + 180) + acc, 0) / path.length)-180
-// console.log(path)
-// // console.log("lat :", averageLat);
-// console.log("lng :", averageLng);
-// const center = {
-//   lat: 0,
-//   lng: averageLng,
-// };
-// const latLngInDeg = path.map((gpsPoint) => Object.values(gpsPoint));
-console.log(centerGPSPoint(path));
 
 const pathOptions = {
   strokeColor: "#FF0000",

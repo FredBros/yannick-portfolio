@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ExpandedMenu } from "../";
 import { useRouter } from "next/router";
@@ -9,10 +9,10 @@ function Header() {
 
   const { events } = useRouter();
 
-  const close = () => {
+  // useCallback() to prevent rerendering
+  const close = useCallback(() => {
     setIsMenuOpen(false);
-  };
-
+  });
   useEffect(() => {
     // subscribe to next/router event
     events.on("routeChangeStart", close);

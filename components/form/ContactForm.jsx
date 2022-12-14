@@ -4,7 +4,6 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Submit } from "../";
-import ReactDOM from "react-dom";
 import Modal from "react-modal";
 
 const customStylesModal = {
@@ -119,7 +118,7 @@ function ContactForm() {
             ) : (
               <p>
                 {" "}
-                Echec de l'envoi.
+                Echec de l&apos;envoi.
                 <br />
                 Veuillez réessayer ultérieurement.
               </p>
@@ -131,11 +130,7 @@ function ContactForm() {
           </Modal>
         </div>
 
-        <form
-          className="contact-form"
-          onSubmit={handleSubmit(onSubmit)}
-          // onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}
-        >
+        <form className="contact-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="name-email-container">
             <div className="contact-form-group">
               <label htmlFor="name">

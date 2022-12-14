@@ -2,15 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { TitleIn } from "../";
 import { gsap } from "gsap";
 
-const Title = ({ text, delay }) => {
-  if (!text) return null;
+const Title = ({ text, delay }) => {  
   const [tl, setTl] = useState();
   const title = text.split(" ");
   const titleRef = useRef();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ 
+      const tl = gsap.timeline({
         //
         scrollTrigger: {
           trigger: titleRef.current,
@@ -19,11 +18,14 @@ const Title = ({ text, delay }) => {
           markers: false,
         },
         //
-        delay: delay || 0 });
+        delay: delay || 0,
+      });
       setTl(tl);
     });
     return () => ctx.revert();
-  }, []);
+  }, [delay]);
+
+  if (!text) return null;
 
   return (
     <h1 ref={titleRef} className="title-component">

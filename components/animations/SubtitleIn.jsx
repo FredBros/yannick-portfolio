@@ -10,9 +10,7 @@ function useArrayRef() {
 }
 
 const SubtitleIn = ({ children, delay }) => {
-  if (!children) {
-    return null;
-  }
+  
   const [refs, setRefs] = useArrayRef();
 
   useEffect(() => {
@@ -36,10 +34,13 @@ const SubtitleIn = ({ children, delay }) => {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [refs, delay]);
 
   let words = children.split(" ");
 
+  if (!children) {
+    return null;
+  }
   return words.map((word, i) => {
     return (
       <span

@@ -9,9 +9,7 @@ function ImageTween({ data, delay, noZoomIn}) {
   // data : picture object
   // delay  : int in seconds
   // noZoomIn : true to avoid pop up effect at render
-  if (!data) {
-    return null;
-  }
+  
   const imgRef = useRef();
   const imgContainerRef = useRef();
   const hoverTween = useRef();
@@ -26,34 +24,36 @@ function ImageTween({ data, delay, noZoomIn}) {
   };
 
   useEffect(() => {
-    const ctx = gsap.context(() => {})
+    const ctx = gsap.context(() => {});
 
-    if(!noZoomIn){
-      ctx.add(()=>{
-      // appearance
-      imgAppearanceTl.current = gsap.timeline({
-        scrollTrigger: {
-          trigger: imgRef.current,
-          start: "center bottom",
-          end: "bottom center",
-          markers: false,
-        }})
-        .fromTo(
-        imgRef.current,        
-        {
-          autoAlpha: 0,
-          scale: 0,
-        },
-        {
-          autoAlpha: 1,
-          scale: 1,
-          duration: 0.5,
-          ease: "back.inOut",
-          delay: delay || 0,
-        }
-        
-      );
-    })}
+    if (!noZoomIn) {
+      ctx.add(() => {
+        // appearance
+        imgAppearanceTl.current = gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: imgRef.current,
+              start: "center bottom",
+              end: "bottom center",
+              markers: false,
+            },
+          })
+          .fromTo(
+            imgRef.current,
+            {
+              autoAlpha: 0,
+              scale: 0,
+            },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              duration: 0.5,
+              ease: "back.inOut",
+              delay: delay || 0,
+            }
+          );
+      });
+    }
 
     ctx.add(() => {
       // hover image useEffect
@@ -80,7 +80,11 @@ function ImageTween({ data, delay, noZoomIn}) {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [delay, noZoomIn]);
+
+if (!data) {
+  return null;
+}
 
   return (
     <>

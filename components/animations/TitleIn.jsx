@@ -10,9 +10,7 @@ function useArrayRef() {
 }
 
 const TitleIn = ({ children, timeline }) => {
-  if (!children) {
-    return null;
-  }
+  
   const [refs, setRefs] = useArrayRef();
 
   useEffect(() => {
@@ -32,10 +30,13 @@ const TitleIn = ({ children, timeline }) => {
         },
         ">"
       );
-  }, [timeline]);
+  }, [timeline, refs]);
 
   const letters = children.split("");
 
+  if (!children) {
+    return null;
+  }
   return letters.map((letter, i) => {
     return (
       <span

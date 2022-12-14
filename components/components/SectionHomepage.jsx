@@ -55,7 +55,6 @@ function SectionHomepage({ content, link }) {
     // };
   }, []); //fin de useEffect
 
-console.log(content);
 
   return (
     <>
@@ -63,7 +62,7 @@ console.log(content);
         <Link href={link || null}>
           <div className="text know-more">
             <div className="title-container">
-              <a href="/" className="know-more-link">
+              <a  className="know-more-link">
                 <Title text={content.title} delay={0.3}></Title>
               </a>
             </div>

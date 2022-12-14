@@ -1,7 +1,6 @@
 export { default as Layout } from "./layout/Layout";
 export { default as Header } from "./layout/Header";
 export { default as Footer } from "./layout/Footer";
-export { default as ThemeChanger } from "./layout/ThemeChanger";
 export { default as HeaderRoleLocation } from "./layout/HeaderRoleLocation";
 export { default as ExpandedMenu } from "./layout/ExpandedMenu";
 export { default as Cursor } from "./layout/Cursor";
@@ -28,10 +27,10 @@ export { default as AccordionItem } from "./components/AccordionItem";
 export { default as DeliveryCardSection } from "./components/DeliveryCardSection";
 export { default as DeliveryCard } from "./components/DeliveryCard";
 
-export { default as TitleIn } from "../animations/TitleIn";
-export { default as SubtitleIn } from "../animations/SubtitleIn";
-export { default as ContentIn } from "../animations/ContentIn";
-export { default as ImageTween } from "../animations/ImageTween";
+export { default as TitleIn } from "./animations/TitleIn";
+export { default as SubtitleIn } from "./animations/SubtitleIn";
+export { default as ContentIn } from "./animations/ContentIn";
+export { default as ImageTween } from "./animations/ImageTween";
 
 export { default as About } from "./views/About";
 export { default as Services } from "./views/Services";
