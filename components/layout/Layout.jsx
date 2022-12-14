@@ -25,7 +25,8 @@ function Layout({ children }) {
         @media screen and (min-width: 992px) {
           main {
             padding: 5px 70px;
-            max-width: none;
+            margin: 60px auto 0;
+            max-width: 1200px;
           }
         }
       `}</style>

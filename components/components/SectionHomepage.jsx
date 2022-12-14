@@ -124,7 +124,6 @@ function SectionHomepage({ content, link }) {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             grid-column-gap: 25px;
-            height: 100vh;
           }
           .text {
             align-self: start;
@@ -134,6 +133,7 @@ function SectionHomepage({ content, link }) {
           .image-wrap {
             grid-column: 8 / 13;
             height: 100%;
+            min-height: 60vh;
             width: 100%;
           }
           .image {

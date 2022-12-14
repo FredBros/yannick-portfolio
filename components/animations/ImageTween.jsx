@@ -106,7 +106,7 @@ if (!data) {
           width: 100%;
         }
         .image {
-          position: relative;
+          position: absolute;
           overflow: hidden;
           height: 150%;
           width: 100%;
