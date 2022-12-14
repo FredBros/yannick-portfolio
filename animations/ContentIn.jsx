@@ -26,7 +26,7 @@ function ContentIn({ children, delay, toggle }) {
     });
     const targets = gsap.utils.toArray(splittedText.words);
     const ctx = gsap.context(() => {
-       contentTl.current = gsap.timeline({         
+       contentTl.current = gsap.timeline({
        });
       gsap.from(targets, {
         autoAlpha: 0,

@@ -1,21 +1,12 @@
 import React from "react";
 import { Header, Footer,  } from "..";
 
-
-
 function Layout({ children }) {
-
-
-
-  
-
   return (
     <>
       <div className="layout">
         <Header />
-        
-            <main>{children}</main>
-         
+        <main>{children}</main>
         <Footer />
       </div>
       <style jsx>{`
@@ -26,13 +17,15 @@ function Layout({ children }) {
           cursor: none;
         }
         main {
-          margin-top: 50px;
           padding: 5px 20px;
           flex: 1 0 auto;
+          max-width: 600px;
+          margin: 50px auto 0;
         }
-        @media screen and (min-width:992px){
-          main{
+        @media screen and (min-width: 992px) {
+          main {
             padding: 5px 70px;
+            max-width: none;
           }
         }
       `}</style>

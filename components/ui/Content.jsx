@@ -3,7 +3,7 @@ import { ContentIn} from "../"
 import { RichText } from "@graphcms/rich-text-react-renderer";
 
 
-
+// data : .raw.children
 const Content = ({data, delay}) => {
 
     const [opacity, setOpacity] = useState(false)

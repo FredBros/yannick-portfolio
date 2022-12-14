@@ -8,7 +8,6 @@ import { MyContext } from "../../utils/context/MyContext";
 
 function SectionContact() {
 
-// console.log(content);
 const {contact} = useContext(MyContext)
 
   return (

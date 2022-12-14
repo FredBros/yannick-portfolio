@@ -1,3 +1,7 @@
+//
+// className "to-click" to set clickable effect on cursor
+
+
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 

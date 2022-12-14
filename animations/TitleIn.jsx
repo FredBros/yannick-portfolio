@@ -9,8 +9,7 @@ function useArrayRef() {
   return [refs, (ref) => ref && refs.current.push(ref)];
 }
 
-const TestTitle = ({ children, timeline}) => {
-
+const TitleIn = ({ children, timeline }) => {
   if (!children) {
     return null;
   }
@@ -63,4 +62,4 @@ const TestTitle = ({ children, timeline}) => {
   // };
 };
 
-export default TestTitle;
+export default TitleIn;

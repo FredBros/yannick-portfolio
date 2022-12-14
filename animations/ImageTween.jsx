@@ -6,6 +6,9 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function ImageTween({ data, delay, noZoomIn}) {
+  // data : picture object
+  // delay  : int in seconds
+  // noZoomIn : true to avoid pop up effect at render
   if (!data) {
     return null;
   }
@@ -101,10 +104,10 @@ function ImageTween({ data, delay, noZoomIn}) {
         .image {
           position: relative;
           overflow: hidden;
-          height: 130%;
+          height: 150%;
           width: 100%;
           margin: 0 auto;
-          transform: translateY(-30%);
+          transform: translateY(-33%);
         }
       `}</style>
     </>

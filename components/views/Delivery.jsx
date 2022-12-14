@@ -73,9 +73,14 @@ const Delivery = ({data}) => {
             grid-column: 3 / 10;
           }
           .delivery-card-section {
-            grid-column: 3 / 10;
+            grid-column: 2 / 12;
             margin: 5vh 0;
           }
+        }
+        @media screen and (min-width: 992px) {
+          .delivery-card-section {
+            grid-column: 3 / 12;
+        }
         }
       `}</style>
     </>

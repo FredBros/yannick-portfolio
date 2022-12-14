@@ -10,7 +10,16 @@ const Title = ({ text, delay }) => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: delay || 0 });
+      const tl = gsap.timeline({ 
+        //
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "center bottom",
+          end: "bottom center",
+          markers: false,
+        },
+        //
+        delay: delay || 0 });
       setTl(tl);
     });
     return () => ctx.revert();
@@ -28,11 +37,11 @@ const Title = ({ text, delay }) => {
       <style jsx>{`
         .title-component {
           font-size: var(--font-size-xxl);
+          text-align: start;
         }
         span {
           display: inline-block;
         }
-        
       `}</style>
     </h1>
   );
