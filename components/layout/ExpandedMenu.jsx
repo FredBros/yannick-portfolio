@@ -141,16 +141,15 @@ function ExpandedMenu({ toggle }) {
           z-index: 50;
           opacity: 1;
           position: fixed;
+          top: 0;
           bottom: 0;
           left: 0;
           width: 100%;
-          height: 100vh;
-          max-height: 100vh;
           background-color: var(--color5);
-          transform: translateY(100%);
+          transform: translateY(120vh);
           display: flex;
           flex-direction: column;
-          padding: 50px 20px;
+          padding: 10vh 3vw;
           justify-content: space-between;
           border-top: solid var(--foreground) 2px;
         }
