@@ -29,7 +29,7 @@ function Diplome({ data }) {
           </div>
           <div className="content">
             <Content delay={1.5} data={data.content.raw.children}/>
-.          </div>
+          </div>
         </Grid>
       </SectionContainer>
       <SectionContact />

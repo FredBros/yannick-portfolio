@@ -12,7 +12,7 @@ function Header() {
   // useCallback() to prevent rerendering
   const close = useCallback(() => {
     setIsMenuOpen(false);
-  });
+  }, [isLoaded]);
   useEffect(() => {
     // subscribe to next/router event
     events.on("routeChangeStart", close);
