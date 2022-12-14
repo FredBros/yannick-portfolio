@@ -6,7 +6,8 @@ function degr2rad(degr) {
 }
 const centerGPSPoint = (path) => {
 
-const latLngInDegr = path.map((gpsPoint) => Object.values(gpsPoint));
+  // take first and last points [[],[]]
+const latLngInDegr = [Object.values(path.at(0)), Object.values(path.at(-1))];
 
     // function getLatLngCenter(latLngInDegr) {
     var LATIDX = 0;
@@ -33,7 +34,6 @@ const latLngInDegr = path.map((gpsPoint) => Object.values(gpsPoint));
     var lat = Math.atan2(avgZ, hyp);
 
     const centerArray = [rad2degr(lat), rad2degr(lng)];
-    console.log(centerArray);
 
 const center = {
   lat: rad2degr(lat),
